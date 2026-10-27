@@ -1,0 +1,26 @@
+id_aeropuerto,codigo_iata,ciudad,pais
+1,LIM,Lima,Perú
+2,CUZ,Cusco,Perú
+3,AQP,Arequipa,Perú
+4,PIU,Piura,Perú
+5,TRU,Trujillo,Perú
+6,IQT,Iquitos,Perú
+7,JUL,Juliaca,Perú
+8,TPP,Tarapoto,Perú
+9,CIX,Chiclayo,Perú
+10,PCL,Pucallpa,Perú
+11,AYP,Ayacucho,Perú
+12,TCQ,Tacna,Perú
+13,PEM,Puerto Maldonado,Perú
+14,JAU,Jauja,Perú
+15,TBP,Tumbes,Perú
+16,CJA,Cajamarca,Perú
+17,SCL,Santiago,Chile
+18,BOG,Bogotá,Colombia
+19,EZE,Buenos Aires,Argentina
+20,GRU,São Paulo,Brasil
+21,MIA,Miami,Estados Unidos
+22,MEX,Ciudad de México,México
+23,PTY,Ciudad de Panamá,Panamá
+24,UIO,Quito,Ecuador
+25,MAD,Madrid,España

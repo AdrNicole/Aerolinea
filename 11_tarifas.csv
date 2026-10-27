@@ -1,0 +1,7 @@
+id_tarifa,clase,nombre,equipaje_incluido,reembolsable
+1,Económica,Básica,0,0
+2,Económica,Light,0,0
+3,Económica,Plus,1,0
+4,Económica,Full,1,1
+5,Premium Economy,Premium Economy,1,1
+6,Business,Business,1,1
