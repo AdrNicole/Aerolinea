@@ -1,1 +1,22 @@
 05_vuelos_original.csv
+# --- Contraseñas y configuración personal ---
+.env
+
+# --- Tu copia local con tu ruta de PC ---
+aerolinea_completo_v2.sql
+cargar_datos.sql
+
+# --- Respaldos de MySQL Workbench ---
+*.mwb.bak
+*.mwb~
+
+# --- Python (cuando lleguen a pandas y FastAPI) ---
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
+
+# --- Archivos del sistema y del editor ---
+.DS_Store
+Thumbs.db
+.vscode/
