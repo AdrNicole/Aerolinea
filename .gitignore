@@ -1,22 +1,9 @@
-05_vuelos_original.csv
-# --- Contraseñas y configuración personal ---
+# Nunca subir: tiene la clave de MySQL
 .env
-
-# --- Tu copia local con tu ruta de PC ---
-aerolinea_completo_v2.sql
-cargar_datos.sql
-
-# --- Respaldos de MySQL Workbench ---
-*.mwb.bak
-*.mwb~
-
-# --- Python (cuando lleguen a pandas y FastAPI) ---
+# Generados al ejecutar
 __pycache__/
-*.pyc
-.venv/
-.ipynb_checkpoints/
-
-# --- Archivos del sistema y del editor ---
-.DS_Store
-Thumbs.db
-.vscode/
+.pytest_cache/
+salidas/eventos_vuelos.csv
+# Herramientas locales (cloudflared pesa 54 MB)
+cloudflared.exe
+config
