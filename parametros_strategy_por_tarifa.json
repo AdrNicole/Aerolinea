@@ -1,0 +1,2838 @@
+{
+  "tipo": "Strategy por tarifa: base mediana ruta-tarifa + factores aprendidos por anticipacion y ocupacion",
+  "ipc_base_diciembre_2025": 324.054,
+  "base_usd_constantes_diciembre_2025": [
+    {
+      "id_ruta": 1,
+      "id_tarifa": 1,
+      "precio_base": 110.27510479497185,
+      "muestra": 8169,
+      "origen": "LIM",
+      "destino": "CUZ"
+    },
+    {
+      "id_ruta": 1,
+      "id_tarifa": 2,
+      "precio_base": 127.10256656101913,
+      "muestra": 6786,
+      "origen": "LIM",
+      "destino": "CUZ"
+    },
+    {
+      "id_ruta": 1,
+      "id_tarifa": 3,
+      "precio_base": 155.7160349634159,
+      "muestra": 5155,
+      "origen": "LIM",
+      "destino": "CUZ"
+    },
+    {
+      "id_ruta": 1,
+      "id_tarifa": 4,
+      "precio_base": 234.2780685757419,
+      "muestra": 3083,
+      "origen": "LIM",
+      "destino": "CUZ"
+    },
+    {
+      "id_ruta": 1,
+      "id_tarifa": 5,
+      "precio_base": 278.6684974034369,
+      "muestra": 2332,
+      "origen": "LIM",
+      "destino": "CUZ"
+    },
+    {
+      "id_ruta": 1,
+      "id_tarifa": 6,
+      "precio_base": 485.01603380281693,
+      "muestra": 463,
+      "origen": "LIM",
+      "destino": "CUZ"
+    },
+    {
+      "id_ruta": 2,
+      "id_tarifa": 1,
+      "precio_base": 108.81232715115627,
+      "muestra": 9130,
+      "origen": "CUZ",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 2,
+      "id_tarifa": 2,
+      "precio_base": 127.35536465169262,
+      "muestra": 7561,
+      "origen": "CUZ",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 2,
+      "id_tarifa": 3,
+      "precio_base": 153.27940214204432,
+      "muestra": 5745,
+      "origen": "CUZ",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 2,
+      "id_tarifa": 4,
+      "precio_base": 246.6692477244307,
+      "muestra": 3488,
+      "origen": "CUZ",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 2,
+      "id_tarifa": 5,
+      "precio_base": 283.6650216433461,
+      "muestra": 2690,
+      "origen": "CUZ",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 2,
+      "id_tarifa": 6,
+      "precio_base": 478.13165174987796,
+      "muestra": 574,
+      "origen": "CUZ",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 3,
+      "id_tarifa": 1,
+      "precio_base": 126.6174518496731,
+      "muestra": 4772,
+      "origen": "LIM",
+      "destino": "AQP"
+    },
+    {
+      "id_ruta": 3,
+      "id_tarifa": 2,
+      "precio_base": 145.76225643981832,
+      "muestra": 3804,
+      "origen": "LIM",
+      "destino": "AQP"
+    },
+    {
+      "id_ruta": 3,
+      "id_tarifa": 3,
+      "precio_base": 175.19118962515185,
+      "muestra": 3012,
+      "origen": "LIM",
+      "destino": "AQP"
+    },
+    {
+      "id_ruta": 3,
+      "id_tarifa": 4,
+      "precio_base": 265.58093841861626,
+      "muestra": 1809,
+      "origen": "LIM",
+      "destino": "AQP"
+    },
+    {
+      "id_ruta": 3,
+      "id_tarifa": 5,
+      "precio_base": 326.3489634757698,
+      "muestra": 1361,
+      "origen": "LIM",
+      "destino": "AQP"
+    },
+    {
+      "id_ruta": 3,
+      "id_tarifa": 6,
+      "precio_base": 513.289832390157,
+      "muestra": 291,
+      "origen": "LIM",
+      "destino": "AQP"
+    },
+    {
+      "id_ruta": 4,
+      "id_tarifa": 1,
+      "precio_base": 125.27964007701809,
+      "muestra": 4564,
+      "origen": "AQP",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 4,
+      "id_tarifa": 2,
+      "precio_base": 147.8199187178285,
+      "muestra": 3810,
+      "origen": "AQP",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 4,
+      "id_tarifa": 3,
+      "precio_base": 177.98584674081044,
+      "muestra": 2969,
+      "origen": "AQP",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 4,
+      "id_tarifa": 4,
+      "precio_base": 271.87262839974903,
+      "muestra": 1766,
+      "origen": "AQP",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 4,
+      "id_tarifa": 5,
+      "precio_base": 343.3733501936447,
+      "muestra": 1307,
+      "origen": "AQP",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 4,
+      "id_tarifa": 6,
+      "precio_base": 490.82438892797734,
+      "muestra": 251,
+      "origen": "AQP",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 5,
+      "id_tarifa": 1,
+      "precio_base": 128.60711625566182,
+      "muestra": 2442,
+      "origen": "LIM",
+      "destino": "PIU"
+    },
+    {
+      "id_ruta": 5,
+      "id_tarifa": 2,
+      "precio_base": 151.05925931449954,
+      "muestra": 1967,
+      "origen": "LIM",
+      "destino": "PIU"
+    },
+    {
+      "id_ruta": 5,
+      "id_tarifa": 3,
+      "precio_base": 184.06756668835393,
+      "muestra": 1613,
+      "origen": "LIM",
+      "destino": "PIU"
+    },
+    {
+      "id_ruta": 5,
+      "id_tarifa": 4,
+      "precio_base": 286.24879433906386,
+      "muestra": 985,
+      "origen": "LIM",
+      "destino": "PIU"
+    },
+    {
+      "id_ruta": 5,
+      "id_tarifa": 5,
+      "precio_base": 343.686509233478,
+      "muestra": 724,
+      "origen": "LIM",
+      "destino": "PIU"
+    },
+    {
+      "id_ruta": 5,
+      "id_tarifa": 6,
+      "precio_base": 584.3796720839823,
+      "muestra": 152,
+      "origen": "LIM",
+      "destino": "PIU"
+    },
+    {
+      "id_ruta": 6,
+      "id_tarifa": 1,
+      "precio_base": 131.92782537256517,
+      "muestra": 3011,
+      "origen": "PIU",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 6,
+      "id_tarifa": 2,
+      "precio_base": 156.1293309445524,
+      "muestra": 2520,
+      "origen": "PIU",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 6,
+      "id_tarifa": 3,
+      "precio_base": 192.00626791542047,
+      "muestra": 1953,
+      "origen": "PIU",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 6,
+      "id_tarifa": 4,
+      "precio_base": 280.0578719308478,
+      "muestra": 1162,
+      "origen": "PIU",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 6,
+      "id_tarifa": 5,
+      "precio_base": 354.5881688112579,
+      "muestra": 860,
+      "origen": "PIU",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 6,
+      "id_tarifa": 6,
+      "precio_base": 649.8710507017005,
+      "muestra": 167,
+      "origen": "PIU",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 7,
+      "id_tarifa": 1,
+      "precio_base": 98.13742619052222,
+      "muestra": 2869,
+      "origen": "LIM",
+      "destino": "TRU"
+    },
+    {
+      "id_ruta": 7,
+      "id_tarifa": 2,
+      "precio_base": 114.76938671349524,
+      "muestra": 2320,
+      "origen": "LIM",
+      "destino": "TRU"
+    },
+    {
+      "id_ruta": 7,
+      "id_tarifa": 3,
+      "precio_base": 135.12219903822137,
+      "muestra": 1818,
+      "origen": "LIM",
+      "destino": "TRU"
+    },
+    {
+      "id_ruta": 7,
+      "id_tarifa": 4,
+      "precio_base": 214.24596616785945,
+      "muestra": 1081,
+      "origen": "LIM",
+      "destino": "TRU"
+    },
+    {
+      "id_ruta": 7,
+      "id_tarifa": 5,
+      "precio_base": 255.31956265644595,
+      "muestra": 794,
+      "origen": "LIM",
+      "destino": "TRU"
+    },
+    {
+      "id_ruta": 7,
+      "id_tarifa": 6,
+      "precio_base": 464.1017686095538,
+      "muestra": 144,
+      "origen": "LIM",
+      "destino": "TRU"
+    },
+    {
+      "id_ruta": 8,
+      "id_tarifa": 1,
+      "precio_base": 97.68365680231635,
+      "muestra": 2745,
+      "origen": "TRU",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 8,
+      "id_tarifa": 2,
+      "precio_base": 111.0760657150552,
+      "muestra": 2251,
+      "origen": "TRU",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 8,
+      "id_tarifa": 3,
+      "precio_base": 135.02556454410748,
+      "muestra": 1687,
+      "origen": "TRU",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 8,
+      "id_tarifa": 4,
+      "precio_base": 218.801367287593,
+      "muestra": 1068,
+      "origen": "TRU",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 8,
+      "id_tarifa": 5,
+      "precio_base": 254.59156571544426,
+      "muestra": 757,
+      "origen": "TRU",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 8,
+      "id_tarifa": 6,
+      "precio_base": 425.1775125341437,
+      "muestra": 170,
+      "origen": "TRU",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 9,
+      "id_tarifa": 1,
+      "precio_base": 146.48571363093816,
+      "muestra": 2687,
+      "origen": "LIM",
+      "destino": "IQT"
+    },
+    {
+      "id_ruta": 9,
+      "id_tarifa": 2,
+      "precio_base": 174.63796360739792,
+      "muestra": 2134,
+      "origen": "LIM",
+      "destino": "IQT"
+    },
+    {
+      "id_ruta": 9,
+      "id_tarifa": 3,
+      "precio_base": 209.55337283361183,
+      "muestra": 1758,
+      "origen": "LIM",
+      "destino": "IQT"
+    },
+    {
+      "id_ruta": 9,
+      "id_tarifa": 4,
+      "precio_base": 312.36257932680826,
+      "muestra": 1051,
+      "origen": "LIM",
+      "destino": "IQT"
+    },
+    {
+      "id_ruta": 9,
+      "id_tarifa": 5,
+      "precio_base": 388.60929865835817,
+      "muestra": 783,
+      "origen": "LIM",
+      "destino": "IQT"
+    },
+    {
+      "id_ruta": 9,
+      "id_tarifa": 6,
+      "precio_base": 680.3287276924175,
+      "muestra": 140,
+      "origen": "LIM",
+      "destino": "IQT"
+    },
+    {
+      "id_ruta": 10,
+      "id_tarifa": 1,
+      "precio_base": 150.6321195512055,
+      "muestra": 3221,
+      "origen": "IQT",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 10,
+      "id_tarifa": 2,
+      "precio_base": 166.8085297354609,
+      "muestra": 2519,
+      "origen": "IQT",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 10,
+      "id_tarifa": 3,
+      "precio_base": 204.49763208203535,
+      "muestra": 1993,
+      "origen": "IQT",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 10,
+      "id_tarifa": 4,
+      "precio_base": 334.32531757699,
+      "muestra": 1241,
+      "origen": "IQT",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 10,
+      "id_tarifa": 5,
+      "precio_base": 379.96026854085807,
+      "muestra": 933,
+      "origen": "IQT",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 10,
+      "id_tarifa": 6,
+      "precio_base": 684.8477765165965,
+      "muestra": 176,
+      "origen": "IQT",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 11,
+      "id_tarifa": 1,
+      "precio_base": 131.44560365326248,
+      "muestra": 2481,
+      "origen": "LIM",
+      "destino": "JUL"
+    },
+    {
+      "id_ruta": 11,
+      "id_tarifa": 2,
+      "precio_base": 154.32875393684353,
+      "muestra": 2032,
+      "origen": "LIM",
+      "destino": "JUL"
+    },
+    {
+      "id_ruta": 11,
+      "id_tarifa": 3,
+      "precio_base": 181.9760393622887,
+      "muestra": 1616,
+      "origen": "LIM",
+      "destino": "JUL"
+    },
+    {
+      "id_ruta": 11,
+      "id_tarifa": 4,
+      "precio_base": 294.60294928889067,
+      "muestra": 923,
+      "origen": "LIM",
+      "destino": "JUL"
+    },
+    {
+      "id_ruta": 11,
+      "id_tarifa": 5,
+      "precio_base": 345.2248680419945,
+      "muestra": 699,
+      "origen": "LIM",
+      "destino": "JUL"
+    },
+    {
+      "id_ruta": 11,
+      "id_tarifa": 6,
+      "precio_base": 581.8413384132136,
+      "muestra": 161,
+      "origen": "LIM",
+      "destino": "JUL"
+    },
+    {
+      "id_ruta": 12,
+      "id_tarifa": 1,
+      "precio_base": 124.75928706209736,
+      "muestra": 1930,
+      "origen": "JUL",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 12,
+      "id_tarifa": 2,
+      "precio_base": 143.56175093288988,
+      "muestra": 1607,
+      "origen": "JUL",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 12,
+      "id_tarifa": 3,
+      "precio_base": 172.8421662380851,
+      "muestra": 1205,
+      "origen": "JUL",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 12,
+      "id_tarifa": 4,
+      "precio_base": 260.31074687182814,
+      "muestra": 682,
+      "origen": "JUL",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 12,
+      "id_tarifa": 5,
+      "precio_base": 318.4567466208523,
+      "muestra": 594,
+      "origen": "JUL",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 12,
+      "id_tarifa": 6,
+      "precio_base": 552.0839007825463,
+      "muestra": 135,
+      "origen": "JUL",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 13,
+      "id_tarifa": 1,
+      "precio_base": 111.87278296330805,
+      "muestra": 3128,
+      "origen": "LIM",
+      "destino": "TPP"
+    },
+    {
+      "id_ruta": 13,
+      "id_tarifa": 2,
+      "precio_base": 129.9569728331177,
+      "muestra": 2533,
+      "origen": "LIM",
+      "destino": "TPP"
+    },
+    {
+      "id_ruta": 13,
+      "id_tarifa": 3,
+      "precio_base": 160.8995953817734,
+      "muestra": 2091,
+      "origen": "LIM",
+      "destino": "TPP"
+    },
+    {
+      "id_ruta": 13,
+      "id_tarifa": 4,
+      "precio_base": 244.52359908543698,
+      "muestra": 1173,
+      "origen": "LIM",
+      "destino": "TPP"
+    },
+    {
+      "id_ruta": 13,
+      "id_tarifa": 5,
+      "precio_base": 280.51702582611534,
+      "muestra": 881,
+      "origen": "LIM",
+      "destino": "TPP"
+    },
+    {
+      "id_ruta": 13,
+      "id_tarifa": 6,
+      "precio_base": 515.0328887869271,
+      "muestra": 159,
+      "origen": "LIM",
+      "destino": "TPP"
+    },
+    {
+      "id_ruta": 14,
+      "id_tarifa": 1,
+      "precio_base": 107.96658733936222,
+      "muestra": 1941,
+      "origen": "TPP",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 14,
+      "id_tarifa": 2,
+      "precio_base": 126.4424849147095,
+      "muestra": 1588,
+      "origen": "TPP",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 14,
+      "id_tarifa": 3,
+      "precio_base": 153.3729222992306,
+      "muestra": 1147,
+      "origen": "TPP",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 14,
+      "id_tarifa": 4,
+      "precio_base": 233.83606898701802,
+      "muestra": 744,
+      "origen": "TPP",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 14,
+      "id_tarifa": 5,
+      "precio_base": 277.2651850123653,
+      "muestra": 537,
+      "origen": "TPP",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 14,
+      "id_tarifa": 6,
+      "precio_base": 495.48524773618317,
+      "muestra": 122,
+      "origen": "TPP",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 15,
+      "id_tarifa": 1,
+      "precio_base": 112.01025177194116,
+      "muestra": 3326,
+      "origen": "LIM",
+      "destino": "CIX"
+    },
+    {
+      "id_ruta": 15,
+      "id_tarifa": 2,
+      "precio_base": 128.8643958503041,
+      "muestra": 2785,
+      "origen": "LIM",
+      "destino": "CIX"
+    },
+    {
+      "id_ruta": 15,
+      "id_tarifa": 3,
+      "precio_base": 163.54281167374842,
+      "muestra": 2178,
+      "origen": "LIM",
+      "destino": "CIX"
+    },
+    {
+      "id_ruta": 15,
+      "id_tarifa": 4,
+      "precio_base": 221.04240338462597,
+      "muestra": 1307,
+      "origen": "LIM",
+      "destino": "CIX"
+    },
+    {
+      "id_ruta": 15,
+      "id_tarifa": 5,
+      "precio_base": 285.76935791587744,
+      "muestra": 938,
+      "origen": "LIM",
+      "destino": "CIX"
+    },
+    {
+      "id_ruta": 15,
+      "id_tarifa": 6,
+      "precio_base": 461.1132392741004,
+      "muestra": 191,
+      "origen": "LIM",
+      "destino": "CIX"
+    },
+    {
+      "id_ruta": 16,
+      "id_tarifa": 1,
+      "precio_base": 112.36325663973105,
+      "muestra": 3169,
+      "origen": "CIX",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 16,
+      "id_tarifa": 2,
+      "precio_base": 129.44292394510163,
+      "muestra": 2584,
+      "origen": "CIX",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 16,
+      "id_tarifa": 3,
+      "precio_base": 160.355666038244,
+      "muestra": 2006,
+      "origen": "CIX",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 16,
+      "id_tarifa": 4,
+      "precio_base": 266.1992199966702,
+      "muestra": 1145,
+      "origen": "CIX",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 16,
+      "id_tarifa": 5,
+      "precio_base": 295.71855964589633,
+      "muestra": 956,
+      "origen": "CIX",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 16,
+      "id_tarifa": 6,
+      "precio_base": 534.8403696045168,
+      "muestra": 177,
+      "origen": "CIX",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 17,
+      "id_tarifa": 1,
+      "precio_base": 95.7933908570894,
+      "muestra": 1851,
+      "origen": "LIM",
+      "destino": "PCL"
+    },
+    {
+      "id_ruta": 17,
+      "id_tarifa": 2,
+      "precio_base": 114.24602643449069,
+      "muestra": 1479,
+      "origen": "LIM",
+      "destino": "PCL"
+    },
+    {
+      "id_ruta": 17,
+      "id_tarifa": 3,
+      "precio_base": 136.2914003986153,
+      "muestra": 1153,
+      "origen": "LIM",
+      "destino": "PCL"
+    },
+    {
+      "id_ruta": 17,
+      "id_tarifa": 4,
+      "precio_base": 213.12190736015822,
+      "muestra": 731,
+      "origen": "LIM",
+      "destino": "PCL"
+    },
+    {
+      "id_ruta": 17,
+      "id_tarifa": 5,
+      "precio_base": 260.70469466155123,
+      "muestra": 522,
+      "origen": "LIM",
+      "destino": "PCL"
+    },
+    {
+      "id_ruta": 17,
+      "id_tarifa": 6,
+      "precio_base": 392.29998111976914,
+      "muestra": 84,
+      "origen": "LIM",
+      "destino": "PCL"
+    },
+    {
+      "id_ruta": 18,
+      "id_tarifa": 1,
+      "precio_base": 93.42518811236533,
+      "muestra": 2010,
+      "origen": "PCL",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 18,
+      "id_tarifa": 2,
+      "precio_base": 112.8804283573958,
+      "muestra": 1623,
+      "origen": "PCL",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 18,
+      "id_tarifa": 3,
+      "precio_base": 137.13827504555772,
+      "muestra": 1246,
+      "origen": "PCL",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 18,
+      "id_tarifa": 4,
+      "precio_base": 203.98,
+      "muestra": 713,
+      "origen": "PCL",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 18,
+      "id_tarifa": 5,
+      "precio_base": 236.12302524702207,
+      "muestra": 527,
+      "origen": "PCL",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 18,
+      "id_tarifa": 6,
+      "precio_base": 430.80817872952605,
+      "muestra": 104,
+      "origen": "PCL",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 19,
+      "id_tarifa": 1,
+      "precio_base": 82.28230262233917,
+      "muestra": 1166,
+      "origen": "LIM",
+      "destino": "AYP"
+    },
+    {
+      "id_ruta": 19,
+      "id_tarifa": 2,
+      "precio_base": 92.57652382030065,
+      "muestra": 937,
+      "origen": "LIM",
+      "destino": "AYP"
+    },
+    {
+      "id_ruta": 19,
+      "id_tarifa": 3,
+      "precio_base": 115.74705932481204,
+      "muestra": 748,
+      "origen": "LIM",
+      "destino": "AYP"
+    },
+    {
+      "id_ruta": 19,
+      "id_tarifa": 4,
+      "precio_base": 174.69529907826984,
+      "muestra": 426,
+      "origen": "LIM",
+      "destino": "AYP"
+    },
+    {
+      "id_ruta": 19,
+      "id_tarifa": 5,
+      "precio_base": 238.94780001992785,
+      "muestra": 320,
+      "origen": "LIM",
+      "destino": "AYP"
+    },
+    {
+      "id_ruta": 19,
+      "id_tarifa": 6,
+      "precio_base": 328.93845812984114,
+      "muestra": 76,
+      "origen": "LIM",
+      "destino": "AYP"
+    },
+    {
+      "id_ruta": 20,
+      "id_tarifa": 1,
+      "precio_base": 82.77134886114565,
+      "muestra": 1255,
+      "origen": "AYP",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 20,
+      "id_tarifa": 2,
+      "precio_base": 96.4471519164664,
+      "muestra": 1080,
+      "origen": "AYP",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 20,
+      "id_tarifa": 3,
+      "precio_base": 124.52276657296385,
+      "muestra": 867,
+      "origen": "AYP",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 20,
+      "id_tarifa": 4,
+      "precio_base": 167.5611880947197,
+      "muestra": 463,
+      "origen": "AYP",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 20,
+      "id_tarifa": 5,
+      "precio_base": 230.82613625748036,
+      "muestra": 368,
+      "origen": "AYP",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 20,
+      "id_tarifa": 6,
+      "precio_base": 376.8298384141056,
+      "muestra": 67,
+      "origen": "AYP",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 21,
+      "id_tarifa": 1,
+      "precio_base": 140.9069294207414,
+      "muestra": 1937,
+      "origen": "LIM",
+      "destino": "TCQ"
+    },
+    {
+      "id_ruta": 21,
+      "id_tarifa": 2,
+      "precio_base": 164.6215680474298,
+      "muestra": 1717,
+      "origen": "LIM",
+      "destino": "TCQ"
+    },
+    {
+      "id_ruta": 21,
+      "id_tarifa": 3,
+      "precio_base": 205.27711316930834,
+      "muestra": 1270,
+      "origen": "LIM",
+      "destino": "TCQ"
+    },
+    {
+      "id_ruta": 21,
+      "id_tarifa": 4,
+      "precio_base": 320.17187442466474,
+      "muestra": 762,
+      "origen": "LIM",
+      "destino": "TCQ"
+    },
+    {
+      "id_ruta": 21,
+      "id_tarifa": 5,
+      "precio_base": 392.4376022664923,
+      "muestra": 602,
+      "origen": "LIM",
+      "destino": "TCQ"
+    },
+    {
+      "id_ruta": 21,
+      "id_tarifa": 6,
+      "precio_base": 518.2069613255647,
+      "muestra": 134,
+      "origen": "LIM",
+      "destino": "TCQ"
+    },
+    {
+      "id_ruta": 22,
+      "id_tarifa": 1,
+      "precio_base": 137.01823639230514,
+      "muestra": 1718,
+      "origen": "TCQ",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 22,
+      "id_tarifa": 2,
+      "precio_base": 174.15034939561556,
+      "muestra": 1450,
+      "origen": "TCQ",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 22,
+      "id_tarifa": 3,
+      "precio_base": 197.5265174332517,
+      "muestra": 1113,
+      "origen": "TCQ",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 22,
+      "id_tarifa": 4,
+      "precio_base": 307.02500619445186,
+      "muestra": 685,
+      "origen": "TCQ",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 22,
+      "id_tarifa": 5,
+      "precio_base": 367.4477963031446,
+      "muestra": 509,
+      "origen": "TCQ",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 22,
+      "id_tarifa": 6,
+      "precio_base": 702.1818185445533,
+      "muestra": 104,
+      "origen": "TCQ",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 23,
+      "id_tarifa": 1,
+      "precio_base": 126.10437507758414,
+      "muestra": 1161,
+      "origen": "LIM",
+      "destino": "PEM"
+    },
+    {
+      "id_ruta": 23,
+      "id_tarifa": 2,
+      "precio_base": 148.6749838325154,
+      "muestra": 951,
+      "origen": "LIM",
+      "destino": "PEM"
+    },
+    {
+      "id_ruta": 23,
+      "id_tarifa": 3,
+      "precio_base": 180.7622511356131,
+      "muestra": 762,
+      "origen": "LIM",
+      "destino": "PEM"
+    },
+    {
+      "id_ruta": 23,
+      "id_tarifa": 4,
+      "precio_base": 287.5426534137342,
+      "muestra": 488,
+      "origen": "LIM",
+      "destino": "PEM"
+    },
+    {
+      "id_ruta": 23,
+      "id_tarifa": 5,
+      "precio_base": 333.2553931814448,
+      "muestra": 343,
+      "origen": "LIM",
+      "destino": "PEM"
+    },
+    {
+      "id_ruta": 23,
+      "id_tarifa": 6,
+      "precio_base": 526.04,
+      "muestra": 69,
+      "origen": "LIM",
+      "destino": "PEM"
+    },
+    {
+      "id_ruta": 24,
+      "id_tarifa": 1,
+      "precio_base": 130.43644096443063,
+      "muestra": 1199,
+      "origen": "PEM",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 24,
+      "id_tarifa": 2,
+      "precio_base": 158.81667365991814,
+      "muestra": 983,
+      "origen": "PEM",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 24,
+      "id_tarifa": 3,
+      "precio_base": 191.0827048774915,
+      "muestra": 756,
+      "origen": "PEM",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 24,
+      "id_tarifa": 4,
+      "precio_base": 306.95263058118,
+      "muestra": 440,
+      "origen": "PEM",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 24,
+      "id_tarifa": 5,
+      "precio_base": 359.2897596315912,
+      "muestra": 350,
+      "origen": "PEM",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 24,
+      "id_tarifa": 6,
+      "precio_base": 707.551627682754,
+      "muestra": 57,
+      "origen": "PEM",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 25,
+      "id_tarifa": 1,
+      "precio_base": 70.76962278085409,
+      "muestra": 1043,
+      "origen": "LIM",
+      "destino": "JAU"
+    },
+    {
+      "id_ruta": 25,
+      "id_tarifa": 2,
+      "precio_base": 78.45492718612945,
+      "muestra": 876,
+      "origen": "LIM",
+      "destino": "JAU"
+    },
+    {
+      "id_ruta": 25,
+      "id_tarifa": 3,
+      "precio_base": 96.4562040563794,
+      "muestra": 661,
+      "origen": "LIM",
+      "destino": "JAU"
+    },
+    {
+      "id_ruta": 25,
+      "id_tarifa": 4,
+      "precio_base": 152.20781720449713,
+      "muestra": 374,
+      "origen": "LIM",
+      "destino": "JAU"
+    },
+    {
+      "id_ruta": 25,
+      "id_tarifa": 5,
+      "precio_base": 174.64694185889564,
+      "muestra": 308,
+      "origen": "LIM",
+      "destino": "JAU"
+    },
+    {
+      "id_ruta": 25,
+      "id_tarifa": 6,
+      "precio_base": 357.1661496788961,
+      "muestra": 55,
+      "origen": "LIM",
+      "destino": "JAU"
+    },
+    {
+      "id_ruta": 26,
+      "id_tarifa": 1,
+      "precio_base": 63.359171135806406,
+      "muestra": 892,
+      "origen": "JAU",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 26,
+      "id_tarifa": 2,
+      "precio_base": 79.17395828797561,
+      "muestra": 647,
+      "origen": "JAU",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 26,
+      "id_tarifa": 3,
+      "precio_base": 94.12415842949461,
+      "muestra": 571,
+      "origen": "JAU",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 26,
+      "id_tarifa": 4,
+      "precio_base": 149.42108668443916,
+      "muestra": 290,
+      "origen": "JAU",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 26,
+      "id_tarifa": 5,
+      "precio_base": 176.84111816662684,
+      "muestra": 221,
+      "origen": "JAU",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 26,
+      "id_tarifa": 6,
+      "precio_base": 306.7950454051278,
+      "muestra": 47,
+      "origen": "JAU",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 27,
+      "id_tarifa": 1,
+      "precio_base": 148.4508539288279,
+      "muestra": 571,
+      "origen": "LIM",
+      "destino": "TBP"
+    },
+    {
+      "id_ruta": 27,
+      "id_tarifa": 2,
+      "precio_base": 167.48204920812623,
+      "muestra": 448,
+      "origen": "LIM",
+      "destino": "TBP"
+    },
+    {
+      "id_ruta": 27,
+      "id_tarifa": 3,
+      "precio_base": 198.00651933545808,
+      "muestra": 336,
+      "origen": "LIM",
+      "destino": "TBP"
+    },
+    {
+      "id_ruta": 27,
+      "id_tarifa": 4,
+      "precio_base": 326.2944178687238,
+      "muestra": 178,
+      "origen": "LIM",
+      "destino": "TBP"
+    },
+    {
+      "id_ruta": 27,
+      "id_tarifa": 5,
+      "precio_base": 409.644039651736,
+      "muestra": 151,
+      "origen": "LIM",
+      "destino": "TBP"
+    },
+    {
+      "id_ruta": 27,
+      "id_tarifa": 6,
+      "precio_base": 569.6513711622159,
+      "muestra": 26,
+      "origen": "LIM",
+      "destino": "TBP"
+    },
+    {
+      "id_ruta": 28,
+      "id_tarifa": 1,
+      "precio_base": 148.25259299294206,
+      "muestra": 809,
+      "origen": "TBP",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 28,
+      "id_tarifa": 2,
+      "precio_base": 183.70771611217396,
+      "muestra": 638,
+      "origen": "TBP",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 28,
+      "id_tarifa": 3,
+      "precio_base": 204.99566494343773,
+      "muestra": 501,
+      "origen": "TBP",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 28,
+      "id_tarifa": 4,
+      "precio_base": 327.78809709443055,
+      "muestra": 304,
+      "origen": "TBP",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 28,
+      "id_tarifa": 5,
+      "precio_base": 410.0194954698643,
+      "muestra": 224,
+      "origen": "TBP",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 28,
+      "id_tarifa": 6,
+      "precio_base": 733.1002431857125,
+      "muestra": 54,
+      "origen": "TBP",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 29,
+      "id_tarifa": 1,
+      "precio_base": 103.03987915108591,
+      "muestra": 1117,
+      "origen": "LIM",
+      "destino": "CJA"
+    },
+    {
+      "id_ruta": 29,
+      "id_tarifa": 2,
+      "precio_base": 117.03569289398962,
+      "muestra": 887,
+      "origen": "LIM",
+      "destino": "CJA"
+    },
+    {
+      "id_ruta": 29,
+      "id_tarifa": 3,
+      "precio_base": 146.8864447451683,
+      "muestra": 703,
+      "origen": "LIM",
+      "destino": "CJA"
+    },
+    {
+      "id_ruta": 29,
+      "id_tarifa": 4,
+      "precio_base": 196.00359710534235,
+      "muestra": 446,
+      "origen": "LIM",
+      "destino": "CJA"
+    },
+    {
+      "id_ruta": 29,
+      "id_tarifa": 5,
+      "precio_base": 269.58448910912307,
+      "muestra": 318,
+      "origen": "LIM",
+      "destino": "CJA"
+    },
+    {
+      "id_ruta": 29,
+      "id_tarifa": 6,
+      "precio_base": 438.37610961885434,
+      "muestra": 59,
+      "origen": "LIM",
+      "destino": "CJA"
+    },
+    {
+      "id_ruta": 30,
+      "id_tarifa": 1,
+      "precio_base": 99.36667388417405,
+      "muestra": 908,
+      "origen": "CJA",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 30,
+      "id_tarifa": 2,
+      "precio_base": 115.99622134160896,
+      "muestra": 715,
+      "origen": "CJA",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 30,
+      "id_tarifa": 3,
+      "precio_base": 143.9297975453687,
+      "muestra": 541,
+      "origen": "CJA",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 30,
+      "id_tarifa": 4,
+      "precio_base": 222.58095184052374,
+      "muestra": 310,
+      "origen": "CJA",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 30,
+      "id_tarifa": 5,
+      "precio_base": 254.94117787636054,
+      "muestra": 244,
+      "origen": "CJA",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 30,
+      "id_tarifa": 6,
+      "precio_base": 440.7275170460505,
+      "muestra": 49,
+      "origen": "CJA",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 31,
+      "id_tarifa": 1,
+      "precio_base": 81.56481487703371,
+      "muestra": 1253,
+      "origen": "CUZ",
+      "destino": "AQP"
+    },
+    {
+      "id_ruta": 31,
+      "id_tarifa": 2,
+      "precio_base": 95.24112151458193,
+      "muestra": 974,
+      "origen": "CUZ",
+      "destino": "AQP"
+    },
+    {
+      "id_ruta": 31,
+      "id_tarifa": 3,
+      "precio_base": 117.13035591133004,
+      "muestra": 761,
+      "origen": "CUZ",
+      "destino": "AQP"
+    },
+    {
+      "id_ruta": 31,
+      "id_tarifa": 4,
+      "precio_base": 172.73256605629564,
+      "muestra": 468,
+      "origen": "CUZ",
+      "destino": "AQP"
+    },
+    {
+      "id_ruta": 31,
+      "id_tarifa": 5,
+      "precio_base": 218.90245263909733,
+      "muestra": 330,
+      "origen": "CUZ",
+      "destino": "AQP"
+    },
+    {
+      "id_ruta": 31,
+      "id_tarifa": 6,
+      "precio_base": 281.9140917927801,
+      "muestra": 79,
+      "origen": "CUZ",
+      "destino": "AQP"
+    },
+    {
+      "id_ruta": 32,
+      "id_tarifa": 1,
+      "precio_base": 75.89906996351755,
+      "muestra": 962,
+      "origen": "AQP",
+      "destino": "CUZ"
+    },
+    {
+      "id_ruta": 32,
+      "id_tarifa": 2,
+      "precio_base": 95.74901344467534,
+      "muestra": 827,
+      "origen": "AQP",
+      "destino": "CUZ"
+    },
+    {
+      "id_ruta": 32,
+      "id_tarifa": 3,
+      "precio_base": 121.16150078145847,
+      "muestra": 651,
+      "origen": "AQP",
+      "destino": "CUZ"
+    },
+    {
+      "id_ruta": 32,
+      "id_tarifa": 4,
+      "precio_base": 195.94069642891665,
+      "muestra": 373,
+      "origen": "AQP",
+      "destino": "CUZ"
+    },
+    {
+      "id_ruta": 32,
+      "id_tarifa": 5,
+      "precio_base": 208.80825458448038,
+      "muestra": 291,
+      "origen": "AQP",
+      "destino": "CUZ"
+    },
+    {
+      "id_ruta": 32,
+      "id_tarifa": 6,
+      "precio_base": 404.0810266958274,
+      "muestra": 66,
+      "origen": "AQP",
+      "destino": "CUZ"
+    },
+    {
+      "id_ruta": 33,
+      "id_tarifa": 1,
+      "precio_base": 72.16675456486105,
+      "muestra": 432,
+      "origen": "CUZ",
+      "destino": "PEM"
+    },
+    {
+      "id_ruta": 33,
+      "id_tarifa": 2,
+      "precio_base": 86.18216255738622,
+      "muestra": 336,
+      "origen": "CUZ",
+      "destino": "PEM"
+    },
+    {
+      "id_ruta": 33,
+      "id_tarifa": 3,
+      "precio_base": 105.6439820141966,
+      "muestra": 276,
+      "origen": "CUZ",
+      "destino": "PEM"
+    },
+    {
+      "id_ruta": 33,
+      "id_tarifa": 4,
+      "precio_base": 179.66984310203395,
+      "muestra": 186,
+      "origen": "CUZ",
+      "destino": "PEM"
+    },
+    {
+      "id_ruta": 33,
+      "id_tarifa": 5,
+      "precio_base": 202.03130452280362,
+      "muestra": 118,
+      "origen": "CUZ",
+      "destino": "PEM"
+    },
+    {
+      "id_ruta": 33,
+      "id_tarifa": 6,
+      "precio_base": 266.0176047413793,
+      "muestra": 39,
+      "origen": "CUZ",
+      "destino": "PEM"
+    },
+    {
+      "id_ruta": 34,
+      "id_tarifa": 1,
+      "precio_base": 75.43988732887277,
+      "muestra": 404,
+      "origen": "PEM",
+      "destino": "CUZ"
+    },
+    {
+      "id_ruta": 34,
+      "id_tarifa": 2,
+      "precio_base": 86.48550372463407,
+      "muestra": 380,
+      "origen": "PEM",
+      "destino": "CUZ"
+    },
+    {
+      "id_ruta": 34,
+      "id_tarifa": 3,
+      "precio_base": 112.27853680822844,
+      "muestra": 296,
+      "origen": "PEM",
+      "destino": "CUZ"
+    },
+    {
+      "id_ruta": 34,
+      "id_tarifa": 4,
+      "precio_base": 143.1199205906982,
+      "muestra": 147,
+      "origen": "PEM",
+      "destino": "CUZ"
+    },
+    {
+      "id_ruta": 34,
+      "id_tarifa": 5,
+      "precio_base": 202.85739091127456,
+      "muestra": 118,
+      "origen": "PEM",
+      "destino": "CUZ"
+    },
+    {
+      "id_ruta": 34,
+      "id_tarifa": 6,
+      "precio_base": 296.0207185749773,
+      "muestra": 27,
+      "origen": "PEM",
+      "destino": "CUZ"
+    },
+    {
+      "id_ruta": 35,
+      "id_tarifa": 1,
+      "precio_base": 70.75365847055602,
+      "muestra": 396,
+      "origen": "CUZ",
+      "destino": "JUL"
+    },
+    {
+      "id_ruta": 35,
+      "id_tarifa": 2,
+      "precio_base": 93.14213792217669,
+      "muestra": 308,
+      "origen": "CUZ",
+      "destino": "JUL"
+    },
+    {
+      "id_ruta": 35,
+      "id_tarifa": 3,
+      "precio_base": 115.05559561945006,
+      "muestra": 236,
+      "origen": "CUZ",
+      "destino": "JUL"
+    },
+    {
+      "id_ruta": 35,
+      "id_tarifa": 4,
+      "precio_base": 150.468658965407,
+      "muestra": 147,
+      "origen": "CUZ",
+      "destino": "JUL"
+    },
+    {
+      "id_ruta": 35,
+      "id_tarifa": 5,
+      "precio_base": 213.46714286705034,
+      "muestra": 108,
+      "origen": "CUZ",
+      "destino": "JUL"
+    },
+    {
+      "id_ruta": 35,
+      "id_tarifa": 6,
+      "precio_base": 409.12874571490624,
+      "muestra": 20,
+      "origen": "CUZ",
+      "destino": "JUL"
+    },
+    {
+      "id_ruta": 36,
+      "id_tarifa": 1,
+      "precio_base": 78.53476571587957,
+      "muestra": 307,
+      "origen": "JUL",
+      "destino": "CUZ"
+    },
+    {
+      "id_ruta": 36,
+      "id_tarifa": 2,
+      "precio_base": 88.79343934603493,
+      "muestra": 236,
+      "origen": "JUL",
+      "destino": "CUZ"
+    },
+    {
+      "id_ruta": 36,
+      "id_tarifa": 3,
+      "precio_base": 115.97494366376293,
+      "muestra": 160,
+      "origen": "JUL",
+      "destino": "CUZ"
+    },
+    {
+      "id_ruta": 36,
+      "id_tarifa": 4,
+      "precio_base": 178.42388101429225,
+      "muestra": 126,
+      "origen": "JUL",
+      "destino": "CUZ"
+    },
+    {
+      "id_ruta": 36,
+      "id_tarifa": 5,
+      "precio_base": 179.47113501555725,
+      "muestra": 66,
+      "origen": "JUL",
+      "destino": "CUZ"
+    },
+    {
+      "id_ruta": 36,
+      "id_tarifa": 6,
+      "precio_base": 265.69160476918324,
+      "muestra": 14,
+      "origen": "JUL",
+      "destino": "CUZ"
+    },
+    {
+      "id_ruta": 37,
+      "id_tarifa": 1,
+      "precio_base": 75.33387655782239,
+      "muestra": 355,
+      "origen": "AQP",
+      "destino": "TCQ"
+    },
+    {
+      "id_ruta": 37,
+      "id_tarifa": 2,
+      "precio_base": 87.34847181401449,
+      "muestra": 292,
+      "origen": "AQP",
+      "destino": "TCQ"
+    },
+    {
+      "id_ruta": 37,
+      "id_tarifa": 3,
+      "precio_base": 102.10111990077785,
+      "muestra": 231,
+      "origen": "AQP",
+      "destino": "TCQ"
+    },
+    {
+      "id_ruta": 37,
+      "id_tarifa": 4,
+      "precio_base": 175.50905537286138,
+      "muestra": 146,
+      "origen": "AQP",
+      "destino": "TCQ"
+    },
+    {
+      "id_ruta": 37,
+      "id_tarifa": 5,
+      "precio_base": 223.31121291219722,
+      "muestra": 102,
+      "origen": "AQP",
+      "destino": "TCQ"
+    },
+    {
+      "id_ruta": 37,
+      "id_tarifa": 6,
+      "precio_base": 381.41728739680246,
+      "muestra": 21,
+      "origen": "AQP",
+      "destino": "TCQ"
+    },
+    {
+      "id_ruta": 38,
+      "id_tarifa": 1,
+      "precio_base": 67.386360131054,
+      "muestra": 120,
+      "origen": "TCQ",
+      "destino": "AQP"
+    },
+    {
+      "id_ruta": 38,
+      "id_tarifa": 2,
+      "precio_base": 87.44833892425571,
+      "muestra": 119,
+      "origen": "TCQ",
+      "destino": "AQP"
+    },
+    {
+      "id_ruta": 38,
+      "id_tarifa": 3,
+      "precio_base": 105.87221578697674,
+      "muestra": 79,
+      "origen": "TCQ",
+      "destino": "AQP"
+    },
+    {
+      "id_ruta": 38,
+      "id_tarifa": 4,
+      "precio_base": 160.96555895797366,
+      "muestra": 64,
+      "origen": "TCQ",
+      "destino": "AQP"
+    },
+    {
+      "id_ruta": 38,
+      "id_tarifa": 5,
+      "precio_base": 211.625314645238,
+      "muestra": 32,
+      "origen": "TCQ",
+      "destino": "AQP"
+    },
+    {
+      "id_ruta": 38,
+      "id_tarifa": 6,
+      "precio_base": 241.98934338809585,
+      "muestra": 11,
+      "origen": "TCQ",
+      "destino": "AQP"
+    },
+    {
+      "id_ruta": 39,
+      "id_tarifa": 1,
+      "precio_base": 418.184686218049,
+      "muestra": 1564,
+      "origen": "LIM",
+      "destino": "SCL"
+    },
+    {
+      "id_ruta": 39,
+      "id_tarifa": 2,
+      "precio_base": 479.2296315111005,
+      "muestra": 1273,
+      "origen": "LIM",
+      "destino": "SCL"
+    },
+    {
+      "id_ruta": 39,
+      "id_tarifa": 3,
+      "precio_base": 633.8201723084935,
+      "muestra": 991,
+      "origen": "LIM",
+      "destino": "SCL"
+    },
+    {
+      "id_ruta": 39,
+      "id_tarifa": 4,
+      "precio_base": 978.8206086722325,
+      "muestra": 599,
+      "origen": "LIM",
+      "destino": "SCL"
+    },
+    {
+      "id_ruta": 39,
+      "id_tarifa": 5,
+      "precio_base": 1169.4375974069221,
+      "muestra": 289,
+      "origen": "LIM",
+      "destino": "SCL"
+    },
+    {
+      "id_ruta": 39,
+      "id_tarifa": 6,
+      "precio_base": 1583.1182404611313,
+      "muestra": 220,
+      "origen": "LIM",
+      "destino": "SCL"
+    },
+    {
+      "id_ruta": 40,
+      "id_tarifa": 1,
+      "precio_base": 410.34132632812486,
+      "muestra": 1606,
+      "origen": "SCL",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 40,
+      "id_tarifa": 2,
+      "precio_base": 479.28631366128445,
+      "muestra": 1276,
+      "origen": "SCL",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 40,
+      "id_tarifa": 3,
+      "precio_base": 587.6148402043937,
+      "muestra": 1024,
+      "origen": "SCL",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 40,
+      "id_tarifa": 4,
+      "precio_base": 945.4463448523486,
+      "muestra": 640,
+      "origen": "SCL",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 40,
+      "id_tarifa": 5,
+      "precio_base": 1046.491213424174,
+      "muestra": 338,
+      "origen": "SCL",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 40,
+      "id_tarifa": 6,
+      "precio_base": 1956.724496359674,
+      "muestra": 219,
+      "origen": "SCL",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 41,
+      "id_tarifa": 1,
+      "precio_base": 361.9826505842084,
+      "muestra": 1968,
+      "origen": "LIM",
+      "destino": "BOG"
+    },
+    {
+      "id_ruta": 41,
+      "id_tarifa": 2,
+      "precio_base": 447.0728268986678,
+      "muestra": 1690,
+      "origen": "LIM",
+      "destino": "BOG"
+    },
+    {
+      "id_ruta": 41,
+      "id_tarifa": 3,
+      "precio_base": 525.6324431749388,
+      "muestra": 1260,
+      "origen": "LIM",
+      "destino": "BOG"
+    },
+    {
+      "id_ruta": 41,
+      "id_tarifa": 4,
+      "precio_base": 783.0758365722213,
+      "muestra": 788,
+      "origen": "LIM",
+      "destino": "BOG"
+    },
+    {
+      "id_ruta": 41,
+      "id_tarifa": 5,
+      "precio_base": 990.6906179608121,
+      "muestra": 436,
+      "origen": "LIM",
+      "destino": "BOG"
+    },
+    {
+      "id_ruta": 41,
+      "id_tarifa": 6,
+      "precio_base": 1770.6762028668788,
+      "muestra": 287,
+      "origen": "LIM",
+      "destino": "BOG"
+    },
+    {
+      "id_ruta": 42,
+      "id_tarifa": 1,
+      "precio_base": 375.9261150739536,
+      "muestra": 1444,
+      "origen": "BOG",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 42,
+      "id_tarifa": 2,
+      "precio_base": 431.2470367056843,
+      "muestra": 1211,
+      "origen": "BOG",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 42,
+      "id_tarifa": 3,
+      "precio_base": 583.5434842761586,
+      "muestra": 900,
+      "origen": "BOG",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 42,
+      "id_tarifa": 4,
+      "precio_base": 792.0937857967061,
+      "muestra": 577,
+      "origen": "BOG",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 42,
+      "id_tarifa": 5,
+      "precio_base": 918.4598276990141,
+      "muestra": 278,
+      "origen": "BOG",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 42,
+      "id_tarifa": 6,
+      "precio_base": 1752.2106661003572,
+      "muestra": 237,
+      "origen": "BOG",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 43,
+      "id_tarifa": 1,
+      "precio_base": 518.5702432082793,
+      "muestra": 1094,
+      "origen": "LIM",
+      "destino": "EZE"
+    },
+    {
+      "id_ruta": 43,
+      "id_tarifa": 2,
+      "precio_base": 598.7552543454301,
+      "muestra": 881,
+      "origen": "LIM",
+      "destino": "EZE"
+    },
+    {
+      "id_ruta": 43,
+      "id_tarifa": 3,
+      "precio_base": 725.9082678047718,
+      "muestra": 713,
+      "origen": "LIM",
+      "destino": "EZE"
+    },
+    {
+      "id_ruta": 43,
+      "id_tarifa": 4,
+      "precio_base": 1119.344121826724,
+      "muestra": 412,
+      "origen": "LIM",
+      "destino": "EZE"
+    },
+    {
+      "id_ruta": 43,
+      "id_tarifa": 5,
+      "precio_base": 1280.7230207453783,
+      "muestra": 234,
+      "origen": "LIM",
+      "destino": "EZE"
+    },
+    {
+      "id_ruta": 43,
+      "id_tarifa": 6,
+      "precio_base": 2713.383484311929,
+      "muestra": 173,
+      "origen": "LIM",
+      "destino": "EZE"
+    },
+    {
+      "id_ruta": 44,
+      "id_tarifa": 1,
+      "precio_base": 499.38982968596883,
+      "muestra": 917,
+      "origen": "EZE",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 44,
+      "id_tarifa": 2,
+      "precio_base": 564.1935294976493,
+      "muestra": 740,
+      "origen": "EZE",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 44,
+      "id_tarifa": 3,
+      "precio_base": 767.1318085026153,
+      "muestra": 562,
+      "origen": "EZE",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 44,
+      "id_tarifa": 4,
+      "precio_base": 1093.9454447707963,
+      "muestra": 354,
+      "origen": "EZE",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 44,
+      "id_tarifa": 5,
+      "precio_base": 1198.409685304492,
+      "muestra": 180,
+      "origen": "EZE",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 44,
+      "id_tarifa": 6,
+      "precio_base": 2374.1844023653584,
+      "muestra": 133,
+      "origen": "EZE",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 45,
+      "id_tarifa": 1,
+      "precio_base": 505.429130560248,
+      "muestra": 873,
+      "origen": "LIM",
+      "destino": "GRU"
+    },
+    {
+      "id_ruta": 45,
+      "id_tarifa": 2,
+      "precio_base": 594.3434786289134,
+      "muestra": 666,
+      "origen": "LIM",
+      "destino": "GRU"
+    },
+    {
+      "id_ruta": 45,
+      "id_tarifa": 3,
+      "precio_base": 700.1631807265658,
+      "muestra": 517,
+      "origen": "LIM",
+      "destino": "GRU"
+    },
+    {
+      "id_ruta": 45,
+      "id_tarifa": 4,
+      "precio_base": 908.1285871175642,
+      "muestra": 314,
+      "origen": "LIM",
+      "destino": "GRU"
+    },
+    {
+      "id_ruta": 45,
+      "id_tarifa": 5,
+      "precio_base": 1141.3562612220328,
+      "muestra": 167,
+      "origen": "LIM",
+      "destino": "GRU"
+    },
+    {
+      "id_ruta": 45,
+      "id_tarifa": 6,
+      "precio_base": 2121.2365731792793,
+      "muestra": 133,
+      "origen": "LIM",
+      "destino": "GRU"
+    },
+    {
+      "id_ruta": 46,
+      "id_tarifa": 1,
+      "precio_base": 531.0918766682892,
+      "muestra": 1582,
+      "origen": "GRU",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 46,
+      "id_tarifa": 2,
+      "precio_base": 628.2595717947206,
+      "muestra": 1206,
+      "origen": "GRU",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 46,
+      "id_tarifa": 3,
+      "precio_base": 743.0190663630448,
+      "muestra": 1011,
+      "origen": "GRU",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 46,
+      "id_tarifa": 4,
+      "precio_base": 1196.2105027983043,
+      "muestra": 587,
+      "origen": "GRU",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 46,
+      "id_tarifa": 5,
+      "precio_base": 1305.2857344779468,
+      "muestra": 314,
+      "origen": "GRU",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 46,
+      "id_tarifa": 6,
+      "precio_base": 2522.481513200479,
+      "muestra": 227,
+      "origen": "GRU",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 47,
+      "id_tarifa": 1,
+      "precio_base": 595.8615110180463,
+      "muestra": 2030,
+      "origen": "LIM",
+      "destino": "MIA"
+    },
+    {
+      "id_ruta": 47,
+      "id_tarifa": 2,
+      "precio_base": 695.6897136648422,
+      "muestra": 1711,
+      "origen": "LIM",
+      "destino": "MIA"
+    },
+    {
+      "id_ruta": 47,
+      "id_tarifa": 3,
+      "precio_base": 859.304050141207,
+      "muestra": 1274,
+      "origen": "LIM",
+      "destino": "MIA"
+    },
+    {
+      "id_ruta": 47,
+      "id_tarifa": 4,
+      "precio_base": 1213.5603674249508,
+      "muestra": 792,
+      "origen": "LIM",
+      "destino": "MIA"
+    },
+    {
+      "id_ruta": 47,
+      "id_tarifa": 5,
+      "precio_base": 1414.8135241472633,
+      "muestra": 395,
+      "origen": "LIM",
+      "destino": "MIA"
+    },
+    {
+      "id_ruta": 47,
+      "id_tarifa": 6,
+      "precio_base": 2591.000173379441,
+      "muestra": 293,
+      "origen": "LIM",
+      "destino": "MIA"
+    },
+    {
+      "id_ruta": 48,
+      "id_tarifa": 1,
+      "precio_base": 631.0416499463394,
+      "muestra": 1685,
+      "origen": "MIA",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 48,
+      "id_tarifa": 2,
+      "precio_base": 742.993780504864,
+      "muestra": 1351,
+      "origen": "MIA",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 48,
+      "id_tarifa": 3,
+      "precio_base": 879.9392580423312,
+      "muestra": 1086,
+      "origen": "MIA",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 48,
+      "id_tarifa": 4,
+      "precio_base": 1351.882373505136,
+      "muestra": 660,
+      "origen": "MIA",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 48,
+      "id_tarifa": 5,
+      "precio_base": 1553.0926352348188,
+      "muestra": 360,
+      "origen": "MIA",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 48,
+      "id_tarifa": 6,
+      "precio_base": 3014.456530171321,
+      "muestra": 255,
+      "origen": "MIA",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 49,
+      "id_tarifa": 1,
+      "precio_base": 624.2513213537807,
+      "muestra": 968,
+      "origen": "LIM",
+      "destino": "MEX"
+    },
+    {
+      "id_ruta": 49,
+      "id_tarifa": 2,
+      "precio_base": 726.577829070255,
+      "muestra": 769,
+      "origen": "LIM",
+      "destino": "MEX"
+    },
+    {
+      "id_ruta": 49,
+      "id_tarifa": 3,
+      "precio_base": 872.6276344064217,
+      "muestra": 602,
+      "origen": "LIM",
+      "destino": "MEX"
+    },
+    {
+      "id_ruta": 49,
+      "id_tarifa": 4,
+      "precio_base": 1254.3703064215802,
+      "muestra": 340,
+      "origen": "LIM",
+      "destino": "MEX"
+    },
+    {
+      "id_ruta": 49,
+      "id_tarifa": 5,
+      "precio_base": 1721.3304879378347,
+      "muestra": 170,
+      "origen": "LIM",
+      "destino": "MEX"
+    },
+    {
+      "id_ruta": 49,
+      "id_tarifa": 6,
+      "precio_base": 2392.5044053672586,
+      "muestra": 133,
+      "origen": "LIM",
+      "destino": "MEX"
+    },
+    {
+      "id_ruta": 50,
+      "id_tarifa": 1,
+      "precio_base": 582.6000226232156,
+      "muestra": 1301,
+      "origen": "MEX",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 50,
+      "id_tarifa": 2,
+      "precio_base": 727.8263426189785,
+      "muestra": 1075,
+      "origen": "MEX",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 50,
+      "id_tarifa": 3,
+      "precio_base": 879.5665461752237,
+      "muestra": 825,
+      "origen": "MEX",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 50,
+      "id_tarifa": 4,
+      "precio_base": 1302.7867813590137,
+      "muestra": 526,
+      "origen": "MEX",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 50,
+      "id_tarifa": 5,
+      "precio_base": 1562.3419250315492,
+      "muestra": 286,
+      "origen": "MEX",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 50,
+      "id_tarifa": 6,
+      "precio_base": 2552.5192830003366,
+      "muestra": 218,
+      "origen": "MEX",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 51,
+      "id_tarifa": 1,
+      "precio_base": 380.5253347645834,
+      "muestra": 731,
+      "origen": "LIM",
+      "destino": "PTY"
+    },
+    {
+      "id_ruta": 51,
+      "id_tarifa": 2,
+      "precio_base": 432.14607833663234,
+      "muestra": 575,
+      "origen": "LIM",
+      "destino": "PTY"
+    },
+    {
+      "id_ruta": 51,
+      "id_tarifa": 3,
+      "precio_base": 530.9434645413143,
+      "muestra": 469,
+      "origen": "LIM",
+      "destino": "PTY"
+    },
+    {
+      "id_ruta": 51,
+      "id_tarifa": 4,
+      "precio_base": 872.20957051724,
+      "muestra": 284,
+      "origen": "LIM",
+      "destino": "PTY"
+    },
+    {
+      "id_ruta": 51,
+      "id_tarifa": 5,
+      "precio_base": 1210.282140102971,
+      "muestra": 143,
+      "origen": "LIM",
+      "destino": "PTY"
+    },
+    {
+      "id_ruta": 51,
+      "id_tarifa": 6,
+      "precio_base": 1646.1037882014784,
+      "muestra": 104,
+      "origen": "LIM",
+      "destino": "PTY"
+    },
+    {
+      "id_ruta": 52,
+      "id_tarifa": 1,
+      "precio_base": 376.79196544097863,
+      "muestra": 792,
+      "origen": "PTY",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 52,
+      "id_tarifa": 2,
+      "precio_base": 451.77945088889925,
+      "muestra": 629,
+      "origen": "PTY",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 52,
+      "id_tarifa": 3,
+      "precio_base": 581.2661426402486,
+      "muestra": 479,
+      "origen": "PTY",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 52,
+      "id_tarifa": 4,
+      "precio_base": 907.2570235822161,
+      "muestra": 286,
+      "origen": "PTY",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 52,
+      "id_tarifa": 5,
+      "precio_base": 894.3144397341937,
+      "muestra": 152,
+      "origen": "PTY",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 52,
+      "id_tarifa": 6,
+      "precio_base": 1818.6413012361743,
+      "muestra": 137,
+      "origen": "PTY",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 53,
+      "id_tarifa": 1,
+      "precio_base": 314.639910695876,
+      "muestra": 736,
+      "origen": "LIM",
+      "destino": "UIO"
+    },
+    {
+      "id_ruta": 53,
+      "id_tarifa": 2,
+      "precio_base": 395.97974293840366,
+      "muestra": 596,
+      "origen": "LIM",
+      "destino": "UIO"
+    },
+    {
+      "id_ruta": 53,
+      "id_tarifa": 3,
+      "precio_base": 443.9668373020035,
+      "muestra": 429,
+      "origen": "LIM",
+      "destino": "UIO"
+    },
+    {
+      "id_ruta": 53,
+      "id_tarifa": 4,
+      "precio_base": 705.5326863422146,
+      "muestra": 266,
+      "origen": "LIM",
+      "destino": "UIO"
+    },
+    {
+      "id_ruta": 53,
+      "id_tarifa": 5,
+      "precio_base": 870.1188890936305,
+      "muestra": 138,
+      "origen": "LIM",
+      "destino": "UIO"
+    },
+    {
+      "id_ruta": 53,
+      "id_tarifa": 6,
+      "precio_base": 1544.494947529243,
+      "muestra": 95,
+      "origen": "LIM",
+      "destino": "UIO"
+    },
+    {
+      "id_ruta": 54,
+      "id_tarifa": 1,
+      "precio_base": 287.63306640818575,
+      "muestra": 586,
+      "origen": "UIO",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 54,
+      "id_tarifa": 2,
+      "precio_base": 320.2122146906022,
+      "muestra": 514,
+      "origen": "UIO",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 54,
+      "id_tarifa": 3,
+      "precio_base": 406.354522534367,
+      "muestra": 375,
+      "origen": "UIO",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 54,
+      "id_tarifa": 4,
+      "precio_base": 637.7470025103229,
+      "muestra": 226,
+      "origen": "UIO",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 54,
+      "id_tarifa": 5,
+      "precio_base": 653.731952868742,
+      "muestra": 106,
+      "origen": "UIO",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 54,
+      "id_tarifa": 6,
+      "precio_base": 1415.7035923929825,
+      "muestra": 104,
+      "origen": "UIO",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 55,
+      "id_tarifa": 1,
+      "precio_base": 1148.3521485900505,
+      "muestra": 1056,
+      "origen": "LIM",
+      "destino": "MAD"
+    },
+    {
+      "id_ruta": 55,
+      "id_tarifa": 2,
+      "precio_base": 1374.7837095795808,
+      "muestra": 865,
+      "origen": "LIM",
+      "destino": "MAD"
+    },
+    {
+      "id_ruta": 55,
+      "id_tarifa": 3,
+      "precio_base": 1626.552668849635,
+      "muestra": 644,
+      "origen": "LIM",
+      "destino": "MAD"
+    },
+    {
+      "id_ruta": 55,
+      "id_tarifa": 4,
+      "precio_base": 2316.5529544742785,
+      "muestra": 394,
+      "origen": "LIM",
+      "destino": "MAD"
+    },
+    {
+      "id_ruta": 55,
+      "id_tarifa": 5,
+      "precio_base": 2922.754037438239,
+      "muestra": 197,
+      "origen": "LIM",
+      "destino": "MAD"
+    },
+    {
+      "id_ruta": 55,
+      "id_tarifa": 6,
+      "precio_base": 6312.704781484766,
+      "muestra": 149,
+      "origen": "LIM",
+      "destino": "MAD"
+    },
+    {
+      "id_ruta": 56,
+      "id_tarifa": 1,
+      "precio_base": 1118.0266785878052,
+      "muestra": 592,
+      "origen": "MAD",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 56,
+      "id_tarifa": 2,
+      "precio_base": 1350.8463212234872,
+      "muestra": 481,
+      "origen": "MAD",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 56,
+      "id_tarifa": 3,
+      "precio_base": 1575.9968553083163,
+      "muestra": 364,
+      "origen": "MAD",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 56,
+      "id_tarifa": 4,
+      "precio_base": 2182.8560366335623,
+      "muestra": 208,
+      "origen": "MAD",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 56,
+      "id_tarifa": 5,
+      "precio_base": 2864.90882303577,
+      "muestra": 121,
+      "origen": "MAD",
+      "destino": "LIM"
+    },
+    {
+      "id_ruta": 56,
+      "id_tarifa": 6,
+      "precio_base": 5815.429681107729,
+      "muestra": 65,
+      "origen": "MAD",
+      "destino": "LIM"
+    }
+  ],
+  "estrategia_tarifa": {
+    "1": {
+      "intercept_log": 0.2770797514148703,
+      "factor_log_anticipacion": {
+        "0–1 días": 0.5909053732298174,
+        "1–3 días": 0.4533376597616026,
+        "3–7 días": 0.23363621776126467,
+        "7–14 días": -0.001330193605545561,
+        "14–30 días": -0.23374128914806916,
+        "30–60 días": -0.3053213860377152,
+        "60–90 días": -0.3460536987595214,
+        "90+ días": -0.39143268320183455
+      },
+      "factor_log_ocupacion": {
+        "0–20 %": -0.18926218050695737,
+        "20–40 %": -0.13340274489624723,
+        "40–60 %": -0.028870889007551248,
+        "60–80 %": 0.10453229165546389,
+        "80–100 %": 0.2470035227552692
+      },
+      "n_entrenamiento": 102976
+    },
+    "2": {
+      "intercept_log": 0.23321867068549693,
+      "factor_log_anticipacion": {
+        "0–1 días": 0.5884214987922872,
+        "1–3 días": 0.45263042692573513,
+        "3–7 días": 0.23765557844262972,
+        "7–14 días": -0.0022072898089107135,
+        "14–30 días": -0.23184537189756135,
+        "30–60 días": -0.30472795431710636,
+        "60–90 días": -0.345933488680303,
+        "90+ días": -0.3939933994567728
+      },
+      "factor_log_ocupacion": {
+        "0–20 %": -0.18969130890810224,
+        "20–40 %": -0.1346131693559888,
+        "40–60 %": -0.029463878768017066,
+        "60–80 %": 0.10656542070849637,
+        "80–100 %": 0.24720293632359924
+      },
+      "n_entrenamiento": 84213
+    },
+    "3": {
+      "intercept_log": 0.22366134616419175,
+      "factor_log_anticipacion": {
+        "0–1 días": 0.5858161323759158,
+        "1–3 días": 0.4501768181110305,
+        "3–7 días": 0.23498215013051676,
+        "7–14 días": -0.00213580889910241,
+        "14–30 días": -0.2345760483119621,
+        "30–60 días": -0.30199960730282205,
+        "60–90 días": -0.34272538770656513,
+        "90+ días": -0.3895382483970017
+      },
+      "factor_log_ocupacion": {
+        "0–20 %": -0.19346251345496493,
+        "20–40 %": -0.1346795784806641,
+        "40–60 %": -0.02729089797659783,
+        "60–80 %": 0.10559578721584637,
+        "80–100 %": 0.249837202696411
+      },
+      "n_entrenamiento": 65389
+    },
+    "4": {
+      "intercept_log": 0.03404392157046673,
+      "factor_log_anticipacion": {
+        "0–1 días": 0.580933477906974,
+        "1–3 días": 0.4412423165224753,
+        "3–7 días": 0.23753341513282136,
+        "7–14 días": -0.011817826355475815,
+        "14–30 días": -0.23375358990795617,
+        "30–60 días": -0.30231813186192386,
+        "60–90 días": -0.3349870627404833,
+        "90+ días": -0.37683259869644664
+      },
+      "factor_log_ocupacion": {
+        "0–20 %": -0.19938622632928638,
+        "20–40 %": -0.13583700302602056,
+        "40–60 %": -0.024996577380222894,
+        "60–80 %": 0.11075831016221949,
+        "80–100 %": 0.2494614965732905
+      },
+      "n_entrenamiento": 39228
+    },
+    "5": {
+      "intercept_log": 0.15204846591945528,
+      "factor_log_anticipacion": {
+        "0–1 días": 0.5735023734211407,
+        "1–3 días": 0.4330290535182519,
+        "3–7 días": 0.22882661984332747,
+        "7–14 días": -0.010453028844832256,
+        "14–30 días": -0.23141072041970684,
+        "30–60 días": -0.29303033150605756,
+        "60–90 días": -0.32934807227772656,
+        "90+ días": -0.37111589373438797
+      },
+      "factor_log_ocupacion": {
+        "0–20 %": -0.20581985318972074,
+        "20–40 %": -0.1401223336553073,
+        "40–60 %": -0.022847428677465236,
+        "60–80 %": 0.11336191468371536,
+        "80–100 %": 0.2554277008387689
+      },
+      "n_entrenamiento": 27622
+    },
+    "6": {
+      "intercept_log": 0.07283948826862485,
+      "factor_log_anticipacion": {
+        "0–1 días": 0.5058727025305382,
+        "1–3 días": 0.3904788028751212,
+        "3–7 días": 0.20175967396221553,
+        "7–14 días": -0.01947602131863269,
+        "14–30 días": -0.2184574075441228,
+        "30–60 días": -0.2652534434910479,
+        "60–90 días": -0.2758797719633544,
+        "90+ días": -0.31904453505072694
+      },
+      "factor_log_ocupacion": {
+        "0–20 %": -0.24647770207433062,
+        "20–40 %": -0.15472962410654492,
+        "40–60 %": -0.02010968743177447,
+        "60–80 %": 0.1294955572533331,
+        "80–100 %": 0.2918214563593154
+      },
+      "n_entrenamiento": 7917
+    }
+  },
+  "limites_dias": [
+    1,
+    3,
+    7,
+    14,
+    30,
+    60,
+    90
+  ],
+  "limites_ocupacion": [
+    0.2,
+    0.4,
+    0.6,
+    0.8
+  ],
+  "entrenado_hasta_salida": "2025-12-31"
+}
