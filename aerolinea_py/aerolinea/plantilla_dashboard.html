@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aerolínea · Centro de control</title>
+<!-- Generado por exportar_html.py: no editar a mano (se sobrescribe). -->
+<style>
+  :root { --fondo:#0b1220; --panel:#131c2e; --borde:#1f2b42; --texto:#e6edf7; --suave:#8b95a7;
+          --azul:#3d9cf5; --naranja:#f2803c; --verde:#2fbf71; --amarillo:#f0c247; --rojo:#ef5b5b; }
+  * { box-sizing: border-box; }
+  html, body { margin:0; background:var(--fondo); color:var(--texto);
+               font-family: "Segoe UI", "Source Sans Pro", system-ui, -apple-system, sans-serif; font-size:15px; }
+  aside { position:fixed; top:0; left:0; bottom:0; width:290px; background:#111a2b; border-right:1px solid var(--borde);
+          padding:22px 20px; overflow-y:auto; }
+  aside h2 { margin:0 0 18px; font-size:1.4rem; }
+  aside label.t { display:block; margin:16px 0 6px; font-size:.9rem; color:#cfd8e6; }
+  aside input[type=date] { width:100%; background:var(--fondo); color:var(--texto); border:1px solid #2a3b5c;
+          border-radius:8px; padding:7px 8px; font:inherit; font-size:.9rem; color-scheme:dark; }
+  .fechas { display:grid; grid-template-columns:1fr; gap:6px; }
+  .seg { display:flex; flex-wrap:wrap; gap:6px; }
+  .seg button { background:var(--fondo); color:var(--texto); border:1px solid #2a3b5c; border-radius:999px;
+          padding:5px 12px; font:inherit; font-size:.88rem; cursor:pointer; }
+  .seg button.on { background:var(--azul); border-color:var(--azul); color:#06101f; font-weight:600; }
+  .seg button:hover:not(.on) { border-color:var(--azul); }
+  details.rutas { background:var(--fondo); border:1px solid #2a3b5c; border-radius:8px; }
+  details.rutas summary { padding:8px 10px; cursor:pointer; font-size:.9rem; color:#b9c7dd; list-style:none; }
+  details.rutas .lista { max-height:260px; overflow-y:auto; padding:4px 10px 8px; border-top:1px solid var(--borde); }
+  details.rutas .lista label { display:flex; gap:8px; align-items:center; font-size:.86rem; padding:3px 0; cursor:pointer; }
+  .boton { background:none; border:1px solid #2a3b5c; color:#b9c7dd; border-radius:8px; padding:6px 10px;
+           font:inherit; font-size:.85rem; cursor:pointer; margin-top:8px; }
+  .boton:hover { border-color:var(--azul); color:var(--texto); }
+  .cap { color:var(--suave); font-size:.82rem; line-height:1.45; margin:14px 0 0; }
+  main { margin-left:290px; padding:24px 34px 60px; max-width:1500px; }
+  .hero { background:linear-gradient(120deg,#123a6b 0%,#0f2747 45%,#0b1220 100%); border:1px solid #1f3355;
+          border-radius:16px; padding:22px 28px; margin-bottom:16px; }
+  .hero h1 { margin:0 0 6px; font-size:2.05rem; letter-spacing:-.5px; }
+  .hero p { margin:0; color:#b9c7dd; font-size:1.02rem; line-height:1.5; }
+  .hero b { color:#fff; }
+  .chip { display:inline-block; background:rgba(61,156,245,.15); color:#9fd3ff; border:1px solid rgba(61,156,245,.35);
+          border-radius:999px; padding:2px 10px; font-size:.78rem; margin:12px 6px 0 0; }
+  .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+  .grid4 { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; margin-top:14px; }
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:26px; }
+  .kpi { background:var(--fondo); border:1px solid var(--borde); border-radius:12px; padding:16px 18px 8px; }
+  .kpi .n { color:#cfd8e6; font-size:.92rem; }
+  .kpi .v { font-size:1.95rem; margin:4px 0 2px; }
+  .kpi .d { font-size:.85rem; display:inline-block; padding:1px 8px; border-radius:999px; }
+  .d.sube { color:#5fe39a; background:rgba(47,191,113,.15); } .d.baja { color:#ff8d8d; background:rgba(239,91,91,.15); }
+  .insight { background:var(--panel); border:1px solid var(--borde); border-left:4px solid var(--azul);
+             border-radius:10px; padding:12px 14px; }
+  .insight .t { color:var(--suave); font-size:.76rem; text-transform:uppercase; letter-spacing:.6px; }
+  .insight .v { margin-top:4px; line-height:1.4; font-size:.97rem; }
+  nav.tabs { display:flex; gap:4px; margin:26px 0 18px; border-bottom:1px solid var(--borde); flex-wrap:wrap; }
+  nav.tabs button { background:none; border:none; color:#b9c7dd; font:inherit; padding:10px 14px; cursor:pointer;
+          border-bottom:2px solid transparent; }
+  nav.tabs button.on { color:var(--azul); border-bottom-color:var(--azul); }
+  nav.tabs button:hover { color:var(--texto); }
+  section.tab { display:none; } section.tab.on { display:block; }
+  h3 { font-size:1.25rem; margin:22px 0 10px; }
+  .nota { color:var(--suave); font-size:.85rem; margin:6px 0; }
+  .info { background:rgba(61,156,245,.12); border:1px solid rgba(61,156,245,.3); color:#cfe6ff; border-radius:10px;
+          padding:12px 14px; margin-top:16px; }
+  .controles { display:flex; flex-wrap:wrap; gap:26px; align-items:flex-end; margin-bottom:12px; }
+  .controles .grupo label { display:block; font-size:.88rem; color:#cfd8e6; margin-bottom:6px; }
+  input[type=range] { accent-color:var(--azul); width:320px; }
+  .mapa-wrap { display:grid; grid-template-columns:1fr 330px; gap:18px; }
+  #mapa { position:relative; height:560px; overflow:hidden; border-radius:12px; background:#0e1626;
+          border:1px solid var(--borde); cursor:grab; user-select:none; touch-action:none; }
+  #mapa.arrastrando { cursor:grabbing; }
+  #mapa img { position:absolute; width:256px; height:256px; pointer-events:none; }
+  #mapa svg { position:absolute; inset:0; }
+  #mapa .zoom { position:absolute; top:12px; right:12px; display:flex; flex-direction:column; gap:4px; z-index:2; }
+  #mapa .zoom button { width:32px; height:32px; background:#1b2537; color:var(--texto); border:1px solid #2a3b5c;
+          border-radius:6px; font-size:1.1rem; cursor:pointer; }
+  #mapa .creditos { position:absolute; right:6px; bottom:4px; font-size:.7rem; color:#9aa6b8; background:rgba(11,18,32,.7);
+          padding:1px 6px; border-radius:4px; z-index:2; }
+  .arco { fill:none; stroke-linecap:round; opacity:.85; cursor:pointer; transition:opacity .15s; }
+  .arco:hover { opacity:1; stroke-width:16px !important; }
+  .flujo { fill:none; stroke:#ffffff; stroke-opacity:.55; stroke-width:1.4; stroke-dasharray:1 16; stroke-linecap:round;
+           pointer-events:none; animation:volar 1.8s linear infinite; }
+  @keyframes volar { to { stroke-dashoffset:-34; } }
+  .leyenda { display:flex; align-items:center; gap:10px; color:#b9c7dd; font-size:.82rem; margin-top:10px; flex-wrap:wrap; }
+  .leyenda .barra { height:10px; width:220px; border-radius:6px; }
+  table.t { width:100%; border-collapse:collapse; font-size:.9rem; background:var(--fondo); border:1px solid var(--borde);
+            border-radius:10px; overflow:hidden; }
+  table.t th { text-align:left; color:var(--suave); font-weight:500; padding:9px 10px; border-bottom:1px solid var(--borde);
+               background:#0f1829; }
+  table.t td { padding:8px 10px; border-bottom:1px solid #172238; }
+  table.t td.num, table.t th.num { text-align:right; font-variant-numeric:tabular-nums; }
+  table.t tr:last-child td { border-bottom:none; }
+  .prog { display:flex; align-items:center; gap:8px; }
+  .prog .p { flex:1; height:6px; background:#1b2537; border-radius:4px; overflow:hidden; min-width:60px; }
+  .prog .p i { display:block; height:100%; background:var(--azul); border-radius:4px; }
+  .prog span { min-width:44px; text-align:right; font-variant-numeric:tabular-nums; font-size:.85rem; }
+  .graf svg { display:block; overflow:visible; }
+  .graf text { fill:#9aa6b8; font-size:11px; font-family:inherit; }
+  .graf .ttl { fill:#e6edf7; font-size:13px; font-weight:600; }
+  .graf line.g { stroke:#1c2740; }
+  [data-tip] { cursor:default; }
+  .graf rect[data-tip]:hover, .graf circle[data-tip]:hover { stroke:#ffffff; stroke-width:1.5; }
+  #tip { position:fixed; pointer-events:none; background:#131c2e; color:var(--texto); border:1px solid #2a3b5c;
+         border-radius:8px; padding:8px 10px; font-size:12.5px; line-height:1.5; z-index:50; display:none;
+         box-shadow:0 6px 24px rgba(0,0,0,.45); max-width:320px; }
+  .codigos { display:flex; flex-wrap:wrap; gap:5px 14px; font-size:.84rem; color:#b9c7dd; margin-top:4px; }
+  .codigos b { color:#9fd3ff; font-family:Consolas, monospace; margin-right:4px; }
+  .codigos-t { color:var(--suave); font-size:.74rem; text-transform:uppercase; letter-spacing:.6px; margin:10px 0 2px; }
+  aside .codigos { flex-direction:column; gap:2px; }
+  .vacio { color:#cfe6ff; background:rgba(61,156,245,.1); border:1px solid rgba(61,156,245,.25); padding:14px; border-radius:10px; }
+  @media (max-width: 1100px) { .mapa-wrap, .grid2 { grid-template-columns:1fr; } .grid3 { grid-template-columns:1fr 1fr; } }
+  @media (max-width: 800px) { aside { position:static; width:auto; } main { margin-left:0; padding:16px; } }
+</style>
+</head>
+<body>
+<aside>
+  <h2>✈️ Filtros</h2>
+  <label class="t">Periodo (fecha del vuelo)</label>
+  <div class="fechas"><input type="date" id="f-desde"><input type="date" id="f-hasta"></div>
+  <label class="t">Mercado</label>
+  <div class="seg" id="f-mercado"></div>
+  <label class="t">Moneda</label>
+  <div class="seg" id="f-moneda"></div>
+  <label class="t">Rutas (vacío = todas)</label>
+  <details class="rutas" id="f-rutas"><summary></summary><div class="lista"></div></details>
+  <button class="boton" id="f-reset">Restablecer filtros</button>
+  <details class="rutas" style="margin-top:14px"><summary>📍 ¿Qué significa cada código?</summary>
+    <div class="lista" id="f-codigos"></div></details>
+  <p class="cap" id="cap-corte"></p>
+  <p class="cap" id="cap-fuente"></p>
+</aside>
+
+<main>
+  <div class="hero" id="hero"></div>
+  <div class="grid3" id="kpis"></div>
+  <div class="grid4" id="insights"></div>
+  <nav class="tabs" id="tabs"></nav>
+
+  <section class="tab" id="tab-mapa">
+    <div class="controles">
+      <div class="grupo"><label>Colorear rutas por</label><div class="seg" id="m-metrica"></div></div>
+      <div class="grupo"><label>Vista</label><div class="seg" id="m-vista"></div></div>
+      <div class="grupo" id="m-mes-grupo"><label id="m-mes-txt"></label><input type="range" id="m-mes" min="0" value="0"></div>
+    </div>
+    <div class="mapa-wrap">
+      <div>
+        <div id="mapa"></div>
+        <div class="leyenda" id="m-leyenda"></div>
+        <p class="nota" id="m-nota"></p>
+        <div id="m-codigos" style="margin-top:8px"></div>
+      </div>
+      <div><b id="m-rank-t"></b><div id="m-rank" style="margin-top:10px"></div></div>
+    </div>
+  </section>
+
+  <section class="tab" id="tab-resumen">
+    <h3 id="r-t1"></h3><div class="graf" id="r-ingresos"></div>
+    <div class="grid2">
+      <div><h3 id="r-t2"></h3><div class="graf" id="r-ocup"></div></div>
+      <div><h3 id="r-t3"></h3><div class="graf" id="r-punt"></div></div>
+    </div>
+    <h3>Comparativo anual (enero a septiembre, mismo periodo cada año)</h3>
+    <div id="r-comp"></div>
+    <div class="info" id="r-antic"></div>
+  </section>
+
+  <section class="tab" id="tab-calendario">
+    <h3>¿Cuándo se vuela más?</h3>
+    <p class="nota">Cada cuadrado es un día; más claro = más actividad. Pasa el mouse para ver la fecha. Los días sin vuelos quedan oscuros.</p>
+    <div class="controles"><div class="grupo"><label>Mostrar</label><div class="seg" id="c-metrica"></div></div></div>
+    <div id="c-anios"></div>
+    <div class="grid2" style="grid-template-columns:1.4fr 1fr">
+      <div><h3>Los 10 días con más pasajeros</h3><div id="c-top"></div></div>
+      <div><h3>Pasajeros promedio por día de la semana</h3><div class="graf" id="c-semana"></div></div>
+    </div>
+  </section>
+
+  <section class="tab" id="tab-rutas">
+    <h3>Rutas por ingresos</h3>
+    <div class="controles" id="ru-top-grupo"><div class="grupo"><label id="ru-top-txt"></label><input type="range" id="ru-top" min="5"></div></div>
+    <div class="graf" id="ru-barras"></div>
+    <h3>Ocupación vs. puntualidad por ruta</h3>
+    <p class="nota">Cada punto es una ruta; el tamaño indica los ingresos. Arriba a la derecha: llenas y puntuales.</p>
+    <div class="graf" id="ru-scatter"></div>
+    <h3>Detalle por ruta</h3>
+    <div id="ru-tabla"></div>
+  </section>
+
+  <section class="tab" id="tab-ventas">
+    <div class="grid2">
+      <div><h3>Ingresos por clase</h3><div class="graf" id="ve-clase"></div>
+           <h3>Ingresos por canal de venta</h3><div class="graf" id="ve-canal"></div></div>
+      <div><h3>Ingresos por tarifa</h3><div class="graf" id="ve-tarifa"></div>
+           <h3>Precio según anticipación de la compra</h3><div class="graf" id="ve-antic"></div></div>
+    </div>
+    <p class="nota" id="ve-equipaje"></p>
+  </section>
+
+  <section class="tab" id="tab-operaciones">
+    <div class="grid2">
+      <div><h3>Retraso promedio por día y hora</h3><div class="graf" id="op-heat"></div></div>
+      <div><h3>Rutas con más retraso</h3><div class="graf" id="op-rutas"></div></div>
+    </div>
+    <h3 id="op-t"></h3><div class="graf" id="op-cancel"></div>
+  </section>
+
+  <section class="tab" id="tab-clientes">
+    <p class="nota">Esta pestaña usa todo el histórico de vuelos aterrizados (no aplica filtros, salvo la moneda).</p>
+    <div class="grid2" style="grid-template-columns:3fr 2fr">
+      <div><h3>Programa de millas: peso vs. gasto</h3><div class="graf" id="cl-millas"></div></div>
+      <div><h3>Gasto por nacionalidad</h3><div class="graf" id="cl-nac"></div></div>
+    </div>
+    <div id="cl-tabla" style="margin-top:18px"></div>
+  </section>
+</main>
+<div id="tip"></div>
+
+<script>const D = __DATOS__;</script>
+<script>__MAPA_JS__</script>
+<script>
+"use strict";
+// ======================================================================
+// Utilidades
+// ======================================================================
+const MESES = ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
+const DIAS = ["lunes","martes","miércoles","jueves","viernes","sábado","domingo"];
+const FRANJAS = ["00-06","06-09","09-12","12-15","15-18","18-24"];
+const C = { azul:"#3d9cf5", naranja:"#f2803c", verde:"#2fbf71", rojo:"#ef5b5b" };
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;");
+const nf = (v, d=0) => v.toLocaleString("en-US", {minimumFractionDigits:d, maximumFractionDigits:d});
+const ok = v => v !== null && v !== undefined && !Number.isNaN(v);
+const fmt = (v, d=0, suf="") => ok(v) ? nf(v, d) + suf : "—";
+const pct = v => fmt(v, 1, "%");
+const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
+const plural = d => d.endsWith("s") ? d : d + "s";
+function fechaUTC(s) { return new Date(Date.UTC(+s.slice(0,4), +s.slice(5,7)-1, +s.slice(8,10))); }
+function isoDe(d) { return d.toISOString().slice(0,10); }
+function diaSem(s) { return (fechaUTC(s).getUTCDay() + 6) % 7; }           // 0 = lunes
+function diaEs(s) { return `${+s.slice(8,10)} ${MESES[+s.slice(5,7)-1]} ${s.slice(0,4)}`; }
+function mesEs(s) { return `${MESES[+s.slice(5,7)-1]} ${s.slice(0,4)}`; }
+function mesCorto(s) { return `${MESES[+s.slice(5,7)-1]} ${s.slice(2,4)}`; }
+function restarAnio(s) {
+  const y = +s.slice(0,4) - 1; let md = s.slice(4);
+  if (md === "-02-29") md = "-02-28";
+  return y + md;
+}
+function si(v) {   // ejes: 1.2M, 350k
+  const a = Math.abs(v);
+  if (a >= 1e9) return nf(v/1e9, a % 1e9 ? 1 : 0) + "G";
+  if (a >= 1e6) return (+(v/1e6).toFixed(1)) + "M";
+  if (a >= 1e3) return (+(v/1e3).toFixed(1)) + "k";
+  return (+v.toFixed(1)) + "";
+}
+function ticks(min, max, n=5) {
+  if (max === min) { max = min + 1; }
+  const paso0 = (max - min) / n, p = Math.pow(10, Math.floor(Math.log10(paso0)));
+  const paso = [1,2,2.5,5,10].map(m => m*p).find(s => s >= paso0) || p*10;
+  const out = []; for (let t = Math.ceil(min/paso)*paso; t <= max + 1e-9; t += paso) out.push(+t.toFixed(10));
+  return out;
+}
+function mezclar(c1, c2, t) { t = Math.min(Math.max(t,0),1); return c1.map((a,i) => Math.round(a + (c2[i]-a)*t)); }
+const rgb = c => `rgb(${c.join(",")})`;
+function hex(h) { return [1,3,5].map(i => parseInt(h.slice(i,i+2),16)); }
+function rampa(stops, t) {   // varios colores, t en [0,1]
+  t = Math.min(Math.max(t,0),1); const k = (stops.length - 1) * t, i = Math.min(Math.floor(k), stops.length - 2);
+  return rgb(mezclar(hex(stops[i]), hex(stops[i+1]), k - i));
+}
+
+// ======================================================================
+// Datos
+// ======================================================================
+const RUTAS = D.rutas;
+const V = D.v.t.map((t, i) => {
+  const r = RUTAS[D.v.r[i]], at = D.v.e[i] === 0;
+  return { i, t, dia: t.slice(0,10), mes: t.slice(0,7), anio: +t.slice(0,4), hora: +t.slice(11,13),
+           ruta: r.ruta, o: r.o, d: r.d, mercado: r.m, at, ca: !at,
+           b: D.v.b[i], c: D.v.c[i], ib: D.v.ib[i], ie: D.v.ie[i], rt: D.v.rt[i],
+           ingresos: at ? D.v.ib[i] + D.v.ie[i] : 0 };
+});
+const UMBRAL = 15;
+
+function agg(L) {   // mismas definiciones que indicadores._agregar
+  let op=0, ca=0, ing=0, eq=0, vol=0, asi=0, pu=0, rts=0, ib=0;
+  for (const v of L) {
+    if (v.at) { op++; ing += v.ingresos; eq += v.ie; vol += v.b; asi += v.c; ib += v.ib;
+                if (v.rt < UMBRAL) pu++; rts += v.rt; }
+    else ca++;
+  }
+  const n = L.length;
+  return { vuelos:n, vuelos_operados:op, cancelados:ca, ingresos:ing, ingresos_equipaje:eq, pasajeros:vol, asientos:asi,
+           ocupacion_pct: asi ? vol/asi*100 : NaN, puntualidad_pct: op ? pu/op*100 : NaN,
+           retraso_prom: op ? rts/op : NaN, cancelacion_pct: n ? ca/n*100 : NaN,
+           ticket_prom: vol ? ib/vol : NaN, ingreso_por_asiento: asi ? ing/asi : NaN };
+}
+function agrupar(L, clave) {
+  const m = new Map();
+  for (const v of L) { const k = clave(v); if (!m.has(k)) m.set(k, []); m.get(k).push(v); }
+  return m;
+}
+function porClave(L, clave) {
+  return [...agrupar(L, clave)].map(([k, g]) => ({ k, ...agg(g) }));
+}
+const ciudad = c => (D.aeropuertos[c] || {}).ciudad || c;
+function nombreRuta(r) {   // "LIM-MAD" -> "Lima → Madrid"; "LIM ⇄ MAD" -> "Lima ⇄ Madrid"
+  return r.includes("⇄") ? r.split(" ⇄ ").map(ciudad).join(" ⇄ ") : r.split("-").map(ciudad).join(" → ");
+}
+function codigosHtml(cods) {
+  const A = D.aeropuertos, nac = cods.filter(c => A[c].pais === "Perú").sort();
+  const inter = cods.filter(c => A[c].pais !== "Perú").sort((a, b) => A[a].pais.localeCompare(A[b].pais));
+  const fila = (cs, conPais) => cs.map(c => `<span><b>${c}</b>${esc(A[c].ciudad)}${conPais ? " (" + esc(A[c].pais) + ")" : ""}</span>`).join("");
+  return (nac.length ? `<div class="codigos-t">Perú</div><div class="codigos">${fila(nac, false)}</div>` : "") +
+         (inter.length ? `<div class="codigos-t">Internacional</div><div class="codigos">${fila(inter, true)}</div>` : "");
+}
+function nombrePar(o, d) {
+  const [a, b] = [o, d].sort((x, y) => (x !== "LIM") - (y !== "LIM") || x.localeCompare(y));
+  return `${a} ⇄ ${b}`;
+}
+
+// ======================================================================
+// Estado y filtros
+// ======================================================================
+const INICIAL = { desde: D.fmin, hasta: D.corte, mercado: "Todos", moneda: "USD", rutas: [],
+                  tab: "mapa", metrica: "Ingresos", vista: "Mundo", mes: 0, cal: "Pasajeros", top: 15 };
+const S = JSON.parse(JSON.stringify(INICIAL));
+let X = {};   // calculos del estado actual
+
+function segmentado(el, opciones, actual, alElegir) {
+  el.innerHTML = opciones.map(o => `<button class="${o === actual ? "on" : ""}" data-v="${esc(o)}">${esc(o)}</button>`).join("");
+  el.onclick = e => { const b = e.target.closest("button"); if (b) alElegir(b.dataset.v); };
+}
+
+function calcular() {
+  const FX = S.moneda === "PEN" ? D.fx : 1, SIM = S.moneda === "PEN" ? "S/" : "US$";
+  const base = S.mercado === "Todos" ? V : V.filter(v => v.mercado === S.mercado);
+  const rs = new Set(S.rutas);
+  const filtrar = (d, h) => base.filter(v => v.dia >= d && v.dia <= h && (!rs.size || rs.has(v.ruta)));
+  const actual = filtrar(S.desde, S.hasta);
+  const antD = restarAnio(S.desde), antH = restarAnio(S.hasta);
+  const hayComp = antD >= D.fmin;
+  const anterior = hayComp ? filtrar(antD, antH) : [];
+  const dias = Math.round((fechaUTC(S.hasta) - fechaUTC(S.desde)) / 864e5);
+  const porDia = dias <= 92;
+  const serie = porClave(actual, v => porDia ? v.dia : v.mes).sort((a, b) => a.k < b.k ? -1 : 1);
+  const mensual = porClave(actual, v => v.mes).sort((a, b) => a.k < b.k ? -1 : 1);
+  const k = agg(actual), kAnt = anterior.length ? agg(anterior) : null;
+  const pr = porClave(actual, v => v.ruta).sort((a, b) => b.ingresos - a.ingresos);
+  const tot = pr.reduce((s, r) => s + r.ingresos, 0);
+  pr.forEach(r => r.pct_ingresos = tot ? r.ingresos / tot * 100 : 0);
+  const punt = actual.filter(v => v.at);
+  // ventas de los vuelos aterrizados del periodo
+  const sel = new Uint8Array(V.length); punt.forEach(v => sel[v.i] = 1);
+  const mezcla = Object.keys(D.dims).map(() => new Map());
+  const F = D.ventas;
+  for (let j = 0; j < F.length; j += 5) {
+    if (!sel[F[j]]) continue;
+    const m = mezcla[F[j+1]], key = F[j+2], a = m.get(key) || {n:0, s:0};
+    a.n += F[j+3]; a.s += F[j+4] / 100; m.set(key, a);
+  }
+  X = { FX, SIM, base, actual, anterior, hayComp, porDia, serie, mensual, k, kAnt, pr, punt, mezcla,
+        unidad: porDia ? "día" : "mes" };
+}
+
+const dinero = usd => {
+  if (!ok(usd)) return "—";
+  const v = usd * X.FX;
+  return Math.abs(v) >= 1e6 ? `${X.SIM} ${nf(v/1e6, 1)} M` : `${X.SIM} ${nf(v, 0)}`;
+};
+
+function precioTramo() {   // precio promedio por tramo de anticipacion
+  const d = Object.keys(D.dims).indexOf("tramo"), m = X.mezcla[d];
+  return D.dims.tramo.map((t, i) => ({ t, p: m.has(i) ? m.get(i).s / m.get(i).n : null }));
+}
+
+// ======================================================================
+// Graficos SVG
+// ======================================================================
+const ancho = el => Math.max(el.clientWidth || el.parentElement.clientWidth || 600, 260);
+
+function graficoTiempo(el, filas, { campo, color, tipo = "bar", alto = 260, cero = true, fmtEje = si, tip }) {
+  const W = ancho(el), m = { l: 56, r: 12, t: 10, b: 30 }, w = W - m.l - m.r, h = alto - m.t - m.b;
+  const vals = filas.map(f => f[campo]).filter(ok);
+  if (!vals.length) { el.innerHTML = `<p class="nota">Sin datos.</p>`; return; }
+  let lo = cero ? 0 : Math.min(...vals), hi = Math.max(...vals);
+  if (!cero) { const pad = (hi - lo) * .15 || 1; lo -= pad; hi += pad; }
+  const tk = ticks(lo, hi); lo = Math.min(lo, tk[0]); hi = Math.max(hi, tk[tk.length-1]);
+  const y = v => m.t + h - (v - lo) / (hi - lo) * h, bw = w / filas.length, x = i => m.l + bw * (i + .5);
+  let s = tk.map(t => `<line class="g" x1="${m.l}" x2="${W-m.r}" y1="${y(t)}" y2="${y(t)}"/>
+          <text x="${m.l-8}" y="${y(t)+4}" text-anchor="end">${fmtEje(t)}</text>`).join("");
+  const cada = Math.ceil(filas.length / Math.max(2, Math.floor(w / 70)));
+  filas.forEach((f, i) => { if (i % cada === 0) s += `<text x="${x(i)}" y="${alto-8}" text-anchor="middle">${f.k.length > 7 ? +f.k.slice(8) + " " + MESES[+f.k.slice(5,7)-1] : mesCorto(f.k)}</text>`; });
+  if (tipo === "bar") {
+    const bwr = Math.max(2, Math.min(28, bw * .72));
+    filas.forEach((f, i) => { if (!ok(f[campo])) return;
+      s += `<rect x="${x(i)-bwr/2}" y="${y(Math.max(f[campo],0))}" width="${bwr}" height="${Math.max(0, y(lo) - y(Math.max(f[campo],0)))}" rx="2" fill="${color}" data-tip="${esc(tip(f))}"/>`; });
+  } else {
+    const pts = filas.map((f, i) => ok(f[campo]) ? `${x(i)},${y(f[campo])}` : null).filter(Boolean);
+    s += `<polyline points="${pts.join(" ")}" fill="none" stroke="${color}" stroke-width="2"/>`;
+    filas.forEach((f, i) => { if (ok(f[campo])) s += `<circle cx="${x(i)}" cy="${y(f[campo])}" r="${filas.length > 40 ? 2.5 : 4}" fill="${color}" data-tip="${esc(tip(f))}"/>`; });
+  }
+  el.innerHTML = `<svg width="${W}" height="${alto}">${s}</svg>`;
+}
+
+function barrasH(el, items, { color = C.azul, fmtV = v => nf(v), alto = 24, etiqueta = 120, tip, fmtEje = si }) {
+  if (!items.length) { el.innerHTML = `<p class="nota">Sin datos.</p>`; return; }
+  const W = ancho(el), m = { l: etiqueta, r: 60, t: 4, b: 26 }, w = W - m.l - m.r;
+  const H = items.length * alto + m.t + m.b, hi = Math.max(...items.map(i => i.v), 0) || 1;
+  const tk = ticks(0, hi, 4), top = Math.max(hi, tk[tk.length-1]), x = v => m.l + v / top * w;
+  let s = tk.map(t => `<line class="g" x1="${x(t)}" x2="${x(t)}" y1="${m.t}" y2="${H-m.b}"/><text x="${x(t)}" y="${H-8}" text-anchor="middle">${fmtEje(t)}</text>`).join("");
+  items.forEach((it, i) => {
+    const yy = m.t + i * alto;
+    s += `<text x="${m.l-8}" y="${yy+alto/2+4}" text-anchor="end" style="fill:#cfd8e6;font-size:12px">${esc(it.l)}</text>
+          <rect x="${m.l}" y="${yy+4}" width="${Math.max(1, x(it.v)-m.l)}" height="${alto-8}" rx="3" fill="${it.color || color}" data-tip="${esc(tip ? tip(it) : it.l + ": " + fmtV(it.v))}"/>
+          <text x="${x(it.v)+6}" y="${yy+alto/2+4}">${fmtV(it.v)}</text>`;
+  });
+  el.innerHTML = `<svg width="${W}" height="${H}">${s}</svg>`;
+}
+
+function barrasV(el, items, { color, alto = 260, fmtEje = si, tituloX = "", tip }) {
+  const W = ancho(el), m = { l: 56, r: 10, t: 10, b: 44 }, w = W - m.l - m.r, h = alto - m.t - m.b;
+  const vals = items.map(i => i.v).filter(ok); const hi = Math.max(...vals, 1);
+  const tk = ticks(0, hi), top = Math.max(hi, tk[tk.length-1]), y = v => m.t + h - v / top * h, bw = w / items.length;
+  let s = tk.map(t => `<line class="g" x1="${m.l}" x2="${W-m.r}" y1="${y(t)}" y2="${y(t)}"/><text x="${m.l-8}" y="${y(t)+4}" text-anchor="end">${fmtEje(t)}</text>`).join("");
+  items.forEach((it, i) => {
+    const xx = m.l + bw * i + bw * .18;
+    s += `<text x="${m.l + bw*(i+.5)}" y="${alto-26}" text-anchor="middle">${esc(it.l)}</text>`;
+    if (ok(it.v)) s += `<rect x="${xx}" y="${y(it.v)}" width="${bw*.64}" height="${y(0)-y(it.v)}" rx="3" fill="${color}" data-tip="${esc(tip(it))}"/>`;
+  });
+  s += `<text x="${m.l + w/2}" y="${alto-4}" text-anchor="middle">${esc(tituloX)}</text>`;
+  el.innerHTML = `<svg width="${W}" height="${alto}">${s}</svg>`;
+}
+
+function sparkline(filas, campo, color, factor = 1) {
+  const pts = filas.filter(f => ok(f[campo])).map(f => f[campo] * factor);
+  if (pts.length < 2) return "";
+  const W = 300, H = 46, lo = Math.min(...pts), hi = Math.max(...pts), r = hi - lo || 1;
+  const xy = pts.map((v, i) => [i / (pts.length - 1) * W, H - 4 - (v - lo) / r * (H - 8)]);
+  const linea = xy.map(p => p.join(",")).join(" ");
+  return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" style="width:100%;height:46px;display:block;margin-top:6px">
+    <polygon points="0,${H} ${linea} ${W},${H}" fill="${color}" fill-opacity=".22"/>
+    <polyline points="${linea}" fill="none" stroke="${color}" stroke-width="1.6" vector-effect="non-scaling-stroke"/></svg>`;
+}
+
+function tabla(cols, filas) {
+  return `<table class="t"><thead><tr>${cols.map(c => `<th class="${c.num ? "num" : ""}">${esc(c.t)}</th>`).join("")}</tr></thead>
+    <tbody>${filas.map(f => `<tr>${cols.map(c => `<td class="${c.num ? "num" : ""}">${c.f(f)}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+}
+const progreso = (v, max, texto) => `<div class="prog"><div class="p"><i style="width:${Math.max(0, Math.min(100, v / (max || 1) * 100))}%"></i></div><span>${texto}</span></div>`;
+
+// ======================================================================
+// Encabezado: portada, indicadores y hallazgos
+// ======================================================================
+function variacion(clave, pp) {
+  const a = X.k[clave], b = X.kAnt && X.kAnt[clave];
+  if (!X.kAnt || !ok(a) || !ok(b)) return null;
+  if (pp) return { v: a - b, txt: `${a - b >= 0 ? "+" : ""}${nf(a - b, 1)} pp` };
+  if (!b) return null;
+  const p = (a - b) / b * 100; return { v: p, txt: `${p >= 0 ? "+" : ""}${nf(p, 1)}%` };
+}
+
+function renderEncabezado() {
+  const k = X.k;
+  const alcance = { Todos: "toda la red", Nacional: "vuelos nacionales", Internacional: "vuelos internacionales" }[S.mercado];
+  $("hero").innerHTML = `<h1>✈️ Centro de control de negocio</h1>
+    <p>Del ${diaEs(S.desde)} al ${diaEs(S.hasta)}, en ${alcance}${S.rutas.length ? " (" + esc(S.rutas.join(", ")) + ")" : ""}:
+    <b>${fmt(k.pasajeros)}</b> pasajeros, <b>${dinero(k.ingresos)}</b> en ingresos, <b>${pct(k.ocupacion_pct)}</b> de ocupación
+    y <b>${pct(k.puntualidad_pct)}</b> de vuelos puntuales.</p>
+    <span class="chip">Fuente: ${esc(D.fuente)}</span><span class="chip">Moneda: ${S.moneda}</span>
+    <span class="chip">${X.hayComp ? "Comparado con el año anterior" : "Sin comparación (elige un periodo desde 2025)"}</span>`;
+  const tarjetas = [
+    ["Ingresos", dinero(k.ingresos), variacion("ingresos"), 1, "ingresos", C.azul, X.FX],
+    ["Pasajeros transportados", fmt(k.pasajeros), variacion("pasajeros"), 1, "pasajeros", C.azul, 1],
+    ["Ticket promedio", ok(k.ticket_prom) ? `${X.SIM} ${nf(k.ticket_prom * X.FX)}` : "—", variacion("ticket_prom"), 1, "ticket_prom", C.azul, X.FX],
+    ["Ocupación", pct(k.ocupacion_pct), variacion("ocupacion_pct", true), 1, "ocupacion_pct", C.verde, 1],
+    ["Puntualidad (<15 min)", pct(k.puntualidad_pct), variacion("puntualidad_pct", true), 1, "puntualidad_pct", C.naranja, 1],
+    ["Cancelación", pct(k.cancelacion_pct), variacion("cancelacion_pct", true), -1, "cancelacion_pct", C.rojo, 1],
+  ];
+  $("kpis").innerHTML = tarjetas.map(([n, v, d, sentido, campo, color, f]) => `<div class="kpi"><div class="n">${n}</div>
+     <div class="v">${v}</div>${d ? `<span class="d ${d.v * sentido >= 0 ? "sube" : "baja"}">${d.v >= 0 ? "▲" : "▼"} ${d.txt}</span>` : ""}
+     ${sparkline(X.mensual, campo, color, f)}</div>`).join("");
+
+  const out = [], pr = X.pr.filter(r => r.ingresos > 0);
+  if (pr.length > 1) out.push(["💰 Ruta más rentable", `<b>${esc(pr[0].k)}</b> genera el <b>${nf(pr[0].pct_ingresos, 1)}%</b> de los ingresos (${dinero(pr[0].ingresos)}).`]);
+  const m = X.mensual.filter(r => r.ingresos > 0);
+  if (m.length > 1) { const b = m.reduce((a, c) => c.ingresos > a.ingresos ? c : a);
+    out.push(["📈 Mejor mes", `<b>${mesEs(b.k)}</b>, con ${dinero(b.ingresos)} y ${nf(b.ocupacion_pct, 1)}% de ocupación.`]); }
+  if (X.punt.length >= 20) { const hm = heatmapRetraso(); let mejor = null;
+    hm.forEach((fila, f) => fila.forEach((v, d) => { if (ok(v) && (!mejor || v > mejor.v)) mejor = { v, f, d }; }));
+    if (mejor) out.push(["⏱️ Momento con más retraso", `Los <b>${plural(DIAS[mejor.d])} de ${FRANJAS[mejor.f]} h</b> salen con <b>${nf(mejor.v)} min</b> de retraso en promedio.`]); }
+  const pt = precioTramo(), p03 = pt[0].p, p61 = pt[5].p;
+  if (ok(p03) && ok(p61)) out.push(["🛒 Compra de último momento", `Comprar con 0 a 3 días cuesta <b>${nf(p03 / p61, 1)} veces</b> más que con 2 a 4 meses (${dinero(p03)} vs ${dinero(p61)}).`]);
+  $("insights").innerHTML = out.map(([t, v]) => `<div class="insight"><div class="t">${t}</div><div class="v">${v}</div></div>`).join("");
+}
+
+function heatmapRetraso() {   // filas = franjas, columnas = dias (promedio de minutos)
+  const s = FRANJAS.map(() => DIAS.map(() => [0, 0]));
+  const f = h => h < 6 ? 0 : h < 9 ? 1 : h < 12 ? 2 : h < 15 ? 3 : h < 18 ? 4 : 5;
+  for (const v of X.punt) { const c = s[f(v.hora)][diaSem(v.dia)]; c[0] += v.rt; c[1]++; }
+  return s.map(fila => fila.map(([a, n]) => n ? a / n : NaN));
+}
+
+// ======================================================================
+// Mapa (teselas de CARTO + arcos en SVG, proyeccion Web Mercator)
+// ======================================================================
+const METRICAS = {
+  "Ingresos": ["ingresos", v => dinero(v)], "Puntualidad": ["puntualidad_pct", pct],
+  "Ocupación": ["ocupacion_pct", pct], "Pasajeros": ["pasajeros", v => fmt(v)],
+};
+const BAJO = [74,128,206], ALTO = [255,196,61], PR = [239,91,91], PA = [240,194,71], PV = [47,191,113];
+const VISTAS = { "Mundo": { z: 3, lon: -50, lat: 4 }, "Perú": { z: 5, lon: -75.3, lat: -9.6 } };
+
+function proy(lon, lat, z) {
+  const n = 256 * 2 ** z, s = Math.sin(lat * Math.PI / 180);
+  return [(lon + 180) / 360 * n, (0.5 - Math.log((1 + s) / (1 - s)) / (4 * Math.PI)) * n];
+}
+function colorDe(v, metrica, lo, hi) {
+  if (!ok(v)) return "rgb(120,130,150)";
+  if (metrica === "Puntualidad") return rgb(v <= 72 ? mezclar(PR, PA, (v - 62) / 10) : mezclar(PA, PV, (v - 72) / 10));
+  return rgb(mezclar(BAJO, ALTO, hi === lo ? .5 : (v - lo) / (hi - lo)));
+}
+
+function datosMapa() {
+  const meses = [...new Set(X.actual.map(v => v.mes))].sort();
+  if (S.mes > meses.length) S.mes = 0;
+  let L = S.mes === 0 ? X.actual : X.actual.filter(v => v.mes === meses[S.mes - 1]);
+  if (S.vista === "Perú") L = L.filter(v => v.mercado === "Nacional");
+  const pares = porClave(L, v => nombrePar(v.o, v.d)).filter(p => p.vuelos_operados > 0);
+  const tot = pares.reduce((s, p) => s + p.ingresos, 0);
+  pares.forEach(p => { [p.a, p.b] = p.k.split(" ⇄ "); p.pct = tot ? p.ingresos / tot * 100 : 0; });
+  return { meses, pares: pares.sort((a, b) => b.ingresos - a.ingresos) };
+}
+
+function renderMapa() {
+  const { meses, pares } = datosMapa();
+  segmentado($("m-metrica"), Object.keys(METRICAS), S.metrica, v => { S.metrica = v; renderMapa(); });
+  segmentado($("m-vista"), Object.keys(VISTAS), S.vista, v => { S.vista = v; renderMapa(); });
+  const r = $("m-mes"); r.max = meses.length; r.value = S.mes;
+  $("m-mes-grupo").style.display = meses.length > 1 ? "" : "none";
+  const eleccion = S.mes === 0 ? "Todo el periodo" : mesEs(meses[S.mes - 1]);
+  $("m-mes-txt").innerHTML = `Mes: <b>${eleccion}</b> (mueve para ver cómo cambia el tráfico)`;
+  r.oninput = () => { S.mes = +r.value; renderMapa(); };
+  X.mapa = { pares, eleccion };
+  dibujarMapa();
+
+  const [campo, f] = METRICAS[S.metrica];
+  const vals = pares.map(p => p[campo]).filter(ok), lo = Math.min(...vals), hi = Math.max(...vals);
+  $("m-leyenda").innerHTML = !pares.length ? "" : (S.metrica === "Puntualidad"
+    ? `<span>≤62% (con retrasos)</span><div class="barra" style="background:linear-gradient(90deg,rgb(239,91,91),rgb(240,194,71),rgb(47,191,113))"></div><span>≥82% (puntual)</span>`
+    : `<span>${f(lo)}</span><div class="barra" style="background:linear-gradient(90deg,rgb(74,128,206),rgb(255,196,61))"></div><span>${f(hi)}</span>`)
+    + `<span style="margin-left:12px">Grosor del arco = pasajeros · Los aviones muestran el sentido del vuelo</span>`;
+  $("m-nota").textContent = `${eleccion} · ${S.vista === "Perú" ? "Rutas nacionales" : "Todas las rutas"} · Ida y vuelta se muestran como un solo arco. ` +
+    "Clic en un aeropuerto para ver solo sus vuelos. Arrastra para mover, rueda del mouse o + / − para acercar. Coordenadas aproximadas de los aeropuertos (no vienen en el dataset).";
+
+  const codsMapa = [...new Set(pares.flatMap(p => [p.a, p.b]))];
+  $("m-codigos").innerHTML = codsMapa.length ? `<b style="font-size:.9rem">Códigos de los aeropuertos del mapa</b>${codigosHtml(codsMapa)}` : "";
+  $("m-rank-t").textContent = `Ranking por ${S.metrica.toLowerCase()}`;
+  const top = [...pares].sort((a, b) => (b[campo] ?? -1) - (a[campo] ?? -1)).slice(0, 12);
+  const max = S.metrica === "Puntualidad" || S.metrica === "Ocupación" ? 100 : Math.max(...pares.map(p => p[campo]), 1);
+  $("m-rank").innerHTML = !pares.length ? "" : tabla([
+    { t: "Ruta", f: p => esc(nombreRuta(p.k)) },
+    { t: S.metrica === "Ingresos" ? `${X.SIM} M` : S.metrica === "Pasajeros" ? "Pasajeros" : "%",
+      f: p => progreso(p[campo], max, S.metrica === "Ingresos" ? nf(p[campo] * X.FX / 1e6, 2) : S.metrica === "Pasajeros" ? nf(p[campo]) : fmt(p[campo], 1)) },
+  ], top);
+}
+
+function dibujarMapa() {
+  const pares = X.mapa.pares, v = VISTAS[S.vista];
+  let arcos = [], nodos = [];
+  if (pares.length) {
+    const [campo] = METRICAS[S.metrica];
+    const vals = pares.map(p => p[campo]).filter(ok), lo = Math.min(...vals), hi = Math.max(...vals);
+    const maxPax = Math.max(...pares.map(p => p.pasajeros), 1);
+    arcos = pares.map(p => ({ a: p.a, b: p.b, color: colorDe(p[campo], S.metrica, lo, hi),
+      ancho: 1.5 + 9 * Math.sqrt(p.pasajeros / maxPax),
+      tip: `<b>${esc(p.k)}</b> · ${esc(nombreRuta(p.k))}<br>Pasajeros: ${fmt(p.pasajeros)} · Vuelos: ${fmt(p.vuelos_operados)}<br>` +
+           `Ingresos: ${dinero(p.ingresos)} (${nf(p.pct, 1)}% del total)<br>Ocupación: ${pct(p.ocupacion_pct)}<br>Puntualidad: ${pct(p.puntualidad_pct)}` }));
+    const aero = new Map();
+    for (const p of pares) for (const c of [p.a, p.b]) { const a = aero.get(c) || { pax: 0, rutas: 0 }; a.pax += p.pasajeros; a.rutas++; aero.set(c, a); }
+    nodos = [...aero].map(([c, a]) => ({ c, pax: a.pax, rutas: a.rutas,
+      tip: `<b>${c} · ${esc(D.aeropuertos[c].ciudad)}</b><br>Pasajeros (llegan + salen): ${fmt(a.pax)}<br>Rutas: ${a.rutas}` }));
+  }
+  MapaVuelos($("mapa"), { clave: S.vista, z: v.z, lon: v.lon, lat: v.lat, arcos, nodos, aeropuertos: D.aeropuertos,
+                          vacio: "No hay vuelos operados para mostrar en el mapa con estos filtros." });
+}
+
+// ======================================================================
+// Pestañas
+// ======================================================================
+function renderResumen() {
+  const U = cap(X.unidad), etq = f => f.k.length > 7 ? diaEs(f.k) : mesEs(f.k);
+  $("r-t1").textContent = `Ingresos por ${X.unidad}`;
+  $("r-t2").textContent = `Ocupación por ${X.unidad}`;
+  $("r-t3").textContent = `Puntualidad por ${X.unidad}`;
+  graficoTiempo($("r-ingresos"), X.serie.map(f => ({ ...f, ing: f.ingresos * X.FX })), { campo: "ing", color: C.azul, alto: 290,
+    tip: f => `<b>${etq(f)}</b><br>Ingresos: ${X.SIM} ${nf(f.ing)}<br>Pasajeros: ${nf(f.pasajeros)}` });
+  graficoTiempo($("r-ocup"), X.serie, { campo: "ocupacion_pct", color: C.verde, tipo: "line", cero: false, fmtEje: v => nf(v) + "%",
+    tip: f => `<b>${etq(f)}</b><br>Ocupación: ${pct(f.ocupacion_pct)}` });
+  graficoTiempo($("r-punt"), X.serie, { campo: "puntualidad_pct", color: C.naranja, tipo: "line", cero: false, fmtEje: v => nf(v) + "%",
+    tip: f => `<b>${etq(f)}</b><br>Puntualidad: ${pct(f.puntualidad_pct)}` });
+  const rs = new Set(S.rutas);
+  const base = X.base.filter(v => (!rs.size || rs.has(v.ruta)) && +v.mes.slice(5, 7) <= 9);
+  const comp = porClave(base, v => v.anio).sort((a, b) => a.k - b.k);
+  comp.forEach((c, i) => c.var = i && comp[i-1].ingresos ? (c.ingresos - comp[i-1].ingresos) / comp[i-1].ingresos * 100 : NaN);
+  $("r-comp").innerHTML = tabla([
+    { t: "Año", f: c => `<b>${c.k}</b>` }, { t: "Vuelos", num: 1, f: c => fmt(c.vuelos_operados) },
+    { t: "Pasajeros", num: 1, f: c => fmt(c.pasajeros) }, { t: `Ingresos (${S.moneda})`, num: 1, f: c => fmt(c.ingresos * X.FX) },
+    { t: "Var. ingresos %", num: 1, f: c => ok(c.var) ? `<span style="color:${c.var >= 0 ? "#5fe39a" : "#ff8d8d"}">${c.var >= 0 ? "+" : ""}${nf(c.var, 1)}</span>` : "—" },
+    { t: "Ocupación %", num: 1, f: c => fmt(c.ocupacion_pct, 1) }, { t: "Puntualidad %", num: 1, f: c => fmt(c.puntualidad_pct, 1) },
+    { t: "Cancelación %", num: 1, f: c => fmt(c.cancelacion_pct, 1) },
+  ], comp);
+  const va = D.anticipadas;
+  $("r-antic").textContent = `Ventas anticipadas (vuelos programados después del corte): ${va.vuelos} vuelos, ${nf(va.boletos)} boletos, ` +
+    `${X.SIM} ${nf(va.ingresos * X.FX)} ya vendidos (${nf(va.ocupacion_pct, 1)}% de ocupación).`;
+}
+
+function renderCalendario() {
+  segmentado($("c-metrica"), ["Pasajeros", "Vuelos", "Ingresos"], S.cal, v => { S.cal = v; renderCalendario(); });
+  const campo = { Pasajeros: "pasajeros", Vuelos: "vuelos", Ingresos: "ingresos" }[S.cal];
+  const m = new Map();
+  for (const v of X.actual) { const d = m.get(v.dia) || { vuelos: 0, pasajeros: 0, ingresos: 0 };
+    d.vuelos++; if (v.at) d.pasajeros += v.b; d.ingresos += v.ingresos * X.FX; m.set(v.dia, d); }
+  const dias = [];
+  for (let d = fechaUTC(S.desde); d <= fechaUTC(S.hasta); d = new Date(d.getTime() + 864e5)) {
+    const k = isoDe(d); dias.push({ k, ...(m.get(k) || { vuelos: 0, pasajeros: 0, ingresos: 0 }) });
+  }
+  const max = Math.max(...dias.map(d => d[campo]), 1), W = ancho($("c-anios"));
+  const anios = [...new Set(dias.map(d => d.k.slice(0, 4)))];
+  const RAMPA = ["#16233a", "#1f4e8c", "#3d9cf5", "#9fd3ff"];
+  $("c-anios").innerHTML = anios.map(a => {
+    const ene1 = fechaUTC(`${a}-01-01`), off = (ene1.getUTCDay() + 6) % 7;
+    const sem = d => Math.floor((Math.round((fechaUTC(d) - ene1) / 864e5) + off) / 7);
+    const celda = Math.max(8, Math.min(17, (W - 120) / 54)), x0 = 40, y0 = 22;
+    let s = `<text x="0" y="13" class="ttl">${a}</text>`;
+    ["Lun", "", "Mié", "", "Vie", "", "Dom"].forEach((t, i) => { if (t) s += `<text x="${x0 - 8}" y="${y0 + i * celda + celda * .7}" text-anchor="end">${t}</text>`; });
+    const delAnio = dias.filter(d => d.k.startsWith(a)), primero = delAnio[0].k.slice(0, 7), ultimo = delAnio[delAnio.length - 1].k.slice(0, 7);
+    for (let mm = 1; mm <= 12; mm++) if (`${a}-${String(mm).padStart(2, "0")}` >= primero && `${a}-${String(mm).padStart(2, "0")}` <= ultimo) s += `<text x="${x0 + sem(`${a}-${String(mm).padStart(2, "0")}-01`) * celda}" y="${y0 + 7 * celda + 14}">${MESES[mm - 1]}</text>`;
+    for (const d of dias.filter(d => d.k.startsWith(a))) {
+      const tip = `<b>${cap(DIAS[diaSem(d.k)])} ${diaEs(d.k)}</b><br>Vuelos: ${d.vuelos}<br>Pasajeros: ${nf(d.pasajeros)}<br>Ingresos (${S.moneda}): ${nf(d.ingresos)}`;
+      s += `<rect x="${x0 + sem(d.k) * celda}" y="${y0 + diaSem(d.k) * celda}" width="${celda - 2.5}" height="${celda - 2.5}" rx="2"
+             fill="${rampa(RAMPA, d[campo] / max)}" data-tip="${esc(tip)}"/>`;
+    }
+    const lx = x0 + 54 * celda + 14;
+    s += `<text x="${lx}" y="${y0 - 6}">${S.cal}</text><defs><linearGradient id="g${a}" x1="0" y1="1" x2="0" y2="0">${RAMPA.map((c, i) => `<stop offset="${i / 3}" stop-color="${c}"/>`).join("")}</linearGradient></defs>
+      <rect x="${lx}" y="${y0}" width="12" height="${7 * celda}" rx="3" fill="url(#g${a})"/>
+      <text x="${lx + 18}" y="${y0 + 9}">${si(max)}</text><text x="${lx + 18}" y="${y0 + 7 * celda}">0</text>`;
+    return `<div class="graf" style="margin:8px 0 18px"><svg width="${lx + 70}" height="${y0 + 7 * celda + 22}">${s}</svg></div>`;
+  }).join("");
+
+  const top = [...dias].sort((a, b) => b.pasajeros - a.pasajeros || b.vuelos - a.vuelos).slice(0, 10);
+  const maxP = Math.max(...dias.map(d => d.pasajeros), 1);
+  $("c-top").innerHTML = tabla([
+    { t: "Fecha", f: d => `${cap(DIAS[diaSem(d.k)])} ${diaEs(d.k)}` }, { t: "Vuelos", num: 1, f: d => d.vuelos },
+    { t: "Pasajeros", f: d => progreso(d.pasajeros, maxP, nf(d.pasajeros)) },
+    { t: `Ingresos (${S.moneda})`, num: 1, f: d => nf(d.ingresos) },
+  ], top);
+  const sem = DIAS.map(() => [0, 0]);
+  dias.filter(d => d.vuelos > 0).forEach(d => { const s = sem[diaSem(d.k)]; s[0] += d.pasajeros; s[1]++; });
+  barrasH($("c-semana"), DIAS.map((d, i) => ({ l: cap(d), v: sem[i][1] ? sem[i][0] / sem[i][1] : 0 })),
+    { alto: 34, etiqueta: 90, fmtV: v => nf(v), tip: it => `<b>${it.l}</b><br>${nf(it.v)} pasajeros por día (promedio)` });
+}
+
+function renderRutas() {
+  const r = X.pr, n = r.length, rango = $("ru-top");
+  $("ru-top-grupo").style.display = n > 5 ? "" : "none";
+  if (n > 5) { rango.max = n; S.top = Math.min(S.top, n); rango.value = S.top;
+    $("ru-top-txt").innerHTML = `Mostrar las primeras <b>${S.top}</b> rutas`;
+    rango.oninput = () => { S.top = +rango.value; renderRutas(); }; }
+  const top = n > 5 ? Math.min(S.top, n) : n;
+  barrasH($("ru-barras"), r.slice(0, top).map(x => ({ l: x.k, v: x.ingresos * X.FX, x })), { etiqueta: 90, alto: 24,
+    fmtV: v => si(v), tip: it => `<b>${esc(it.l)}</b> · ${esc(nombreRuta(it.l))}<br>Ingresos: ${X.SIM} ${nf(it.v)}<br>${nf(it.x.pct_ingresos, 1)}% del total<br>Vuelos: ${it.x.vuelos_operados}` });
+  // dispersion ocupacion vs puntualidad
+  const el = $("ru-scatter"), W = ancho(el), H = 390, m = { l: 56, r: 20, t: 14, b: 40 };
+  const pts = r.filter(x => ok(x.ocupacion_pct) && ok(x.puntualidad_pct));
+  if (!pts.length) el.innerHTML = `<p class="nota">Sin datos.</p>`;
+  else {
+    const xs = pts.map(p => p.ocupacion_pct), ys = pts.map(p => p.puntualidad_pct);
+    const pad = (a, b) => [a - (b - a) * .08 - .5, b + (b - a) * .08 + .5];
+    const [x0, x1] = pad(Math.min(...xs), Math.max(...xs)), [y0, y1] = pad(Math.min(...ys), Math.max(...ys));
+    const X_ = v => m.l + (v - x0) / (x1 - x0) * (W - m.l - m.r), Y_ = v => H - m.b - (v - y0) / (y1 - y0) * (H - m.t - m.b);
+    const maxI = Math.max(...pts.map(p => p.ingresos), 1);
+    let s = ticks(y0, y1).map(t => `<line class="g" x1="${m.l}" x2="${W - m.r}" y1="${Y_(t)}" y2="${Y_(t)}"/><text x="${m.l - 8}" y="${Y_(t) + 4}" text-anchor="end">${nf(t)}</text>`).join("")
+          + ticks(x0, x1).map(t => `<line class="g" y1="${m.t}" y2="${H - m.b}" x1="${X_(t)}" x2="${X_(t)}"/><text y="${H - m.b + 16}" x="${X_(t)}" text-anchor="middle">${nf(t)}</text>`).join("")
+          + `<text x="${m.l + (W - m.l - m.r) / 2}" y="${H - 4}" text-anchor="middle">Ocupación (%)</text>
+             <text transform="translate(14,${m.t + (H - m.t - m.b) / 2}) rotate(-90)" text-anchor="middle">Puntualidad (%)</text>`;
+    [...pts].sort((a, b) => b.ingresos - a.ingresos).forEach(p => {
+      s += `<circle cx="${X_(p.ocupacion_pct)}" cy="${Y_(p.puntualidad_pct)}" r="${(3.5 + 15 * Math.sqrt(p.ingresos / maxI)).toFixed(1)}" fill="${C.azul}" fill-opacity=".7" stroke="#0b1220"
+        data-tip="${esc(`<b>${p.k}</b> · ${nombreRuta(p.k)}<br>Ocupación: ${pct(p.ocupacion_pct)}<br>Puntualidad: ${pct(p.puntualidad_pct)}<br>Ingresos: ${dinero(p.ingresos)}`)}"/>`;
+    });
+    el.innerHTML = `<svg width="${W}" height="${H}">${s}</svg>`;
+  }
+  $("ru-tabla").innerHTML = `<p class="nota">Montos en ${S.moneda}.</p>` + tabla([
+    { t: "Ruta", f: x => `<b>${esc(x.k)}</b>` }, { t: "Ciudades", f: x => esc(nombreRuta(x.k)) }, { t: "Vuelos", num: 1, f: x => fmt(x.vuelos_operados) },
+    { t: "Pasajeros", num: 1, f: x => fmt(x.pasajeros) }, { t: "Ingresos", num: 1, f: x => fmt(x.ingresos * X.FX) },
+    { t: "% ingresos", num: 1, f: x => fmt(x.pct_ingresos, 1) }, { t: "Ocupación %", num: 1, f: x => fmt(x.ocupacion_pct, 1) },
+    { t: "Puntualidad %", num: 1, f: x => fmt(x.puntualidad_pct, 1) }, { t: "Ingreso x asiento", num: 1, f: x => fmt(x.ingreso_por_asiento * X.FX, 1) },
+    { t: "Cancelados", num: 1, f: x => fmt(x.cancelados) },
+  ], r);
+}
+
+function renderVentas() {
+  const dims = Object.keys(D.dims);
+  for (const nombre of ["clase", "canal", "tarifa"]) {
+    const d = dims.indexOf(nombre), m = X.mezcla[d];
+    const tot = [...m.values()].reduce((s, a) => s + a.s, 0);
+    const items = [...m].map(([i, a]) => ({ l: D.dims[nombre][i], v: tot ? a.s / tot * 100 : 0, a }))
+                        .sort((a, b) => b.v - a.v);
+    barrasH($(`ve-${nombre}`), items, { etiqueta: 100, alto: 40, fmtV: v => nf(v, 1) + "%", fmtEje: v => nf(v) + "%",
+      tip: it => `<b>${esc(it.l)}</b><br>${nf(it.v, 1)}% de los ingresos por boletos<br>Ingresos: ${X.SIM} ${nf(it.a.s * X.FX)}<br>` +
+                 `Boletos: ${nf(it.a.n)}<br>Precio prom.: ${X.SIM} ${nf(it.a.s / it.a.n * X.FX, 1)}` });
+  }
+  barrasV($("ve-antic"), precioTramo().map(t => ({ l: t.t, v: ok(t.p) ? t.p * X.FX : null })), { color: C.naranja,
+    tituloX: "Días de anticipación", fmtEje: v => nf(v), tip: it => `<b>${it.l} días</b><br>Precio promedio: ${X.SIM} ${nf(it.v, 1)}` });
+  $("ve-equipaje").textContent = `Ingresos por equipaje en el periodo: ${X.SIM} ${nf(X.k.ingresos_equipaje * X.FX)} ` +
+    `(${X.SIM} ${nf(35 * X.FX, 2)} por maleta de bodega en tarifas sin equipaje).`;
+}
+
+function renderOperaciones() {
+  const hm = heatmapRetraso(), el = $("op-heat"), W = ancho(el), H = 300, m = { l: 60, t: 6, b: 26, r: 70 };
+  const vals = hm.flat().filter(ok), lo = Math.min(...vals), hi = Math.max(...vals);
+  const cw = (W - m.l - m.r) / 7, ch = (H - m.t - m.b) / 6, RAMPA = ["#fee8c8", "#fdbb84", "#e34a33", "#a50f15"];
+  const NOMBRES = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];
+  let s = "";
+  if (!vals.length) el.innerHTML = `<p class="nota">Sin vuelos aterrizados.</p>`;
+  else {
+    hm.forEach((fila, f) => {
+      s += `<text x="${m.l - 8}" y="${m.t + f * ch + ch / 2 + 4}" text-anchor="end">${FRANJAS[f]}</text>`;
+      fila.forEach((v, d) => { s += `<rect x="${m.l + d * cw + 1}" y="${m.t + f * ch + 1}" width="${cw - 2}" height="${ch - 2}" rx="3"
+        fill="${ok(v) ? rampa(RAMPA, (v - lo) / ((hi - lo) || 1)) : "#16233a"}" data-tip="${esc(`<b>${cap(DIAS[d])}, ${FRANJAS[f]} h</b><br>Retraso promedio: ${ok(v) ? nf(v, 1) + " min" : "sin vuelos"}`)}"/>`; });
+    });
+    NOMBRES.forEach((n, d) => s += `<text x="${m.l + d * cw + cw / 2}" y="${H - 8}" text-anchor="middle">${n}</text>`);
+    const lx = W - m.r + 14;
+    s += `<defs><linearGradient id="gh" x1="0" y1="1" x2="0" y2="0">${RAMPA.map((c, i) => `<stop offset="${i / 3}" stop-color="${c}"/>`).join("")}</linearGradient></defs>
+      <text x="${lx}" y="${m.t + 10}">Min</text><rect x="${lx}" y="${m.t + 18}" width="12" height="${H - m.t - m.b - 30}" rx="3" fill="url(#gh)"/>
+      <text x="${lx + 17}" y="${m.t + 28}">${nf(hi)}</text><text x="${lx + 17}" y="${H - m.b - 12}">${nf(lo)}</text>`;
+    el.innerHTML = `<svg width="${W}" height="${H}">${s}</svg>`;
+  }
+  const rr = porClave(X.punt, v => v.ruta).filter(r => r.vuelos >= 5).map(r => {
+    const L = X.punt.filter(v => v.ruta === r.k);
+    return { l: r.k, v: r.retraso_prom, n: r.vuelos, p: L.filter(v => v.rt >= UMBRAL).length / L.length * 100 };
+  }).sort((a, b) => b.v - a.v || b.p - a.p).slice(0, 12);
+  barrasH($("op-rutas"), rr, { color: C.naranja, etiqueta: 80, alto: 22, fmtV: v => nf(v, 1), fmtEje: v => nf(v),
+    tip: it => `<b>${esc(it.l)}</b> · ${esc(nombreRuta(it.l))}<br>Retraso promedio: ${nf(it.v, 1)} min<br>% retrasados (≥15 min): ${nf(it.p, 1)}%<br>Vuelos: ${it.n}` });
+  $("op-t").textContent = `Cancelaciones por ${X.unidad}`;
+  graficoTiempo($("op-cancel"), X.serie, { campo: "cancelados", color: C.rojo, alto: 220, fmtEje: v => nf(v),
+    tip: f => `<b>${f.k.length > 7 ? diaEs(f.k) : mesEs(f.k)}</b><br>Cancelados: ${f.cancelados}<br>${pct(f.cancelacion_pct)} del ${X.unidad}` });
+}
+
+function renderClientes() {
+  const niv = D.niveles, el = $("cl-millas"), W = ancho(el), H = 320, m = { l: 50, r: 10, t: 34, b: 30 };
+  const hi = Math.max(...niv.flatMap(n => [n.pct_pasajeros, n.pct_gasto])), tk = ticks(0, hi), top = Math.max(hi, tk[tk.length - 1]);
+  const y = v => m.t + (H - m.t - m.b) * (1 - v / top), gw = (W - m.l - m.r) / niv.length, bw = gw * .32;
+  let s = `<rect x="${m.l}" y="6" width="11" height="11" rx="2" fill="${C.azul}"/><text x="${m.l + 16}" y="15">% de pasajeros</text>
+           <rect x="${m.l + 130}" y="6" width="11" height="11" rx="2" fill="${C.naranja}"/><text x="${m.l + 146}" y="15">% del gasto</text>`;
+  s += tk.map(t => `<line class="g" x1="${m.l}" x2="${W - m.r}" y1="${y(t)}" y2="${y(t)}"/><text x="${m.l - 8}" y="${y(t) + 4}" text-anchor="end">${nf(t)}</text>`).join("");
+  niv.forEach((n, i) => {
+    const cx = m.l + gw * (i + .5);
+    [["pct_pasajeros", C.azul, -1, "% de pasajeros"], ["pct_gasto", C.naranja, 0, "% del gasto"]].forEach(([c, col, o, t]) =>
+      s += `<rect x="${cx + o * bw}" y="${y(n[c])}" width="${bw - 2}" height="${y(0) - y(n[c])}" rx="3" fill="${col}" data-tip="${esc(`<b>${n.nivel}</b><br>${t}: ${nf(n[c], 1)}%`)}"/>`);
+    s += `<text x="${cx}" y="${H - 8}" text-anchor="middle" style="fill:#cfd8e6">${esc(n.nivel)}</text>`;
+  });
+  el.innerHTML = `<svg width="${W}" height="${H}">${s}</svg>`;
+  barrasH($("cl-nac"), D.nacionalidad.map(n => ({ l: n.pais, v: n.gasto * X.FX })), { etiqueta: 100, alto: 34,
+    fmtV: v => si(v), tip: it => `<b>${esc(it.l)}</b><br>Gasto: ${X.SIM} ${nf(it.v)}` });
+  $("cl-tabla").innerHTML = tabla([
+    { t: "Nivel", f: n => `<b>${esc(n.nivel)}</b>` }, { t: "Pasajeros", num: 1, f: n => fmt(n.pasajeros) },
+    { t: "Vuelos prom.", num: 1, f: n => fmt(n.vuelos_prom, 1) }, { t: "Vuelos mediana", num: 1, f: n => fmt(n.vuelos_mediana, 1) },
+    { t: `Gasto prom. (${S.moneda})`, num: 1, f: n => fmt(n.gasto_prom_usd * X.FX, 1) }, { t: "Millas prom.", num: 1, f: n => fmt(n.millas_prom, 1) },
+    { t: "% pasajeros", num: 1, f: n => fmt(n.pct_pasajeros, 1) }, { t: "% gasto", num: 1, f: n => fmt(n.pct_gasto, 1) },
+  ], niv);
+}
+
+const PESTANAS = [["mapa", "🗺️ Mapa", renderMapa], ["resumen", "📊 Resumen", renderResumen], ["calendario", "📅 Calendario", renderCalendario],
+                  ["rutas", "✈️ Rutas", renderRutas], ["ventas", "💰 Ventas", renderVentas], ["operaciones", "⏱️ Operaciones", renderOperaciones],
+                  ["clientes", "👥 Clientes", renderClientes]];
+
+function renderPestana() {
+  $("tabs").innerHTML = PESTANAS.map(([id, t]) => `<button class="${id === S.tab ? "on" : ""}" data-t="${id}">${t}</button>`).join("");
+  PESTANAS.forEach(([id]) => $(`tab-${id}`).classList.toggle("on", id === S.tab));
+  if (!X.actual.length) { $(`tab-${S.tab}`).querySelectorAll(".graf, #mapa").forEach(e => e.innerHTML = ""); return; }
+  PESTANAS.find(p => p[0] === S.tab)[2]();
+}
+$("tabs").onclick = e => { const b = e.target.closest("button"); if (b) { S.tab = b.dataset.t; renderPestana(); } };
+
+// ======================================================================
+// Filtros (barra lateral)
+// ======================================================================
+function renderFiltros() {
+  const d = $("f-desde"), h = $("f-hasta");
+  [d, h].forEach(i => { i.min = D.fmin; i.max = D.corte; });
+  d.value = S.desde; h.value = S.hasta;
+  segmentado($("f-mercado"), ["Todos", "Nacional", "Internacional"], S.mercado, v => {
+    S.mercado = v; const validas = new Set(RUTAS.filter(r => v === "Todos" || r.m === v).map(r => r.ruta));
+    S.rutas = S.rutas.filter(r => validas.has(r)); actualizar(); });
+  segmentado($("f-moneda"), ["USD", "PEN"], S.moneda, v => { S.moneda = v; actualizar(); });
+  $("f-moneda").title = `PEN convierte con el tipo de cambio del dataset: ${D.fx}`;
+  const opciones = RUTAS.filter(r => S.mercado === "Todos" || r.m === S.mercado).map(r => r.ruta);
+  const sel = new Set(S.rutas), det = $("f-rutas");
+  det.querySelector("summary").textContent = S.rutas.length ? `${S.rutas.length} ruta(s): ${S.rutas.slice(0, 3).join(", ")}${S.rutas.length > 3 ? "…" : ""}` : "Elige una o más rutas ▾";
+  det.querySelector(".lista").innerHTML = opciones.map(r => `<label><input type="checkbox" value="${r}" ${sel.has(r) ? "checked" : ""}><span><b>${r}</b> <span style="color:#8b95a7">${esc(nombreRuta(r))}</span></span></label>`).join("");
+  det.querySelector(".lista").onchange = () => {
+    S.rutas = [...det.querySelectorAll("input:checked")].map(i => i.value); actualizar(); };
+}
+function leerFechas() {
+  let a = $("f-desde").value || D.fmin, b = $("f-hasta").value || D.corte;
+  a = a < D.fmin ? D.fmin : a > D.corte ? D.corte : a; b = b < D.fmin ? D.fmin : b > D.corte ? D.corte : b;
+  if (a > b) [a, b] = [b, a];
+  S.desde = a; S.hasta = b; S.mes = 0; actualizar();
+}
+$("f-desde").onchange = leerFechas; $("f-hasta").onchange = leerFechas;
+$("f-reset").onclick = () => { Object.assign(S, JSON.parse(JSON.stringify(INICIAL)), { tab: S.tab }); actualizar(); };
+$("f-codigos").innerHTML = codigosHtml(Object.keys(D.aeropuertos)) +
+  `<p class="cap" style="margin-top:8px">Son los códigos IATA de los aeropuertos. LIM-MAD = vuelo de Lima a Madrid.</p>`;
+$("cap-corte").textContent = `Datos históricos hasta el ${D.corte.split("-").reverse().join("/")} (fecha de corte del dataset).`;
+$("cap-fuente").textContent = `Fuente: ${D.fuente} · Archivo generado el ${D.generado} con exportar_html.py.`;
+
+function actualizar() {
+  const abierto = $("f-rutas").open;
+  calcular(); renderFiltros(); $("f-rutas").open = abierto;
+  if (!X.actual.length) {
+    $("hero").innerHTML = `<h1>✈️ Centro de control de negocio</h1><p>No hay vuelos para esos filtros.</p>`;
+    $("kpis").innerHTML = $("insights").innerHTML = "";
+  } else renderEncabezado();
+  renderPestana();
+}
+
+// Tooltip unico para todos los graficos
+const TIP = $("tip");
+document.addEventListener("mousemove", e => {
+  const t = e.target.closest && e.target.closest("[data-tip]");
+  if (!t || (e.buttons && t.closest("#mapa"))) { TIP.style.display = "none"; return; }
+  TIP.innerHTML = t.getAttribute("data-tip"); TIP.style.display = "block";
+  const w = TIP.offsetWidth, h = TIP.offsetHeight;
+  TIP.style.left = Math.min(e.clientX + 14, innerWidth - w - 8) + "px";
+  TIP.style.top = (e.clientY + 16 + h > innerHeight ? e.clientY - h - 12 : e.clientY + 16) + "px";
+});
+let espera; window.addEventListener("resize", () => { clearTimeout(espera); espera = setTimeout(renderPestana, 200); });
+
+actualizar();
+</script>
+</body>
+</html>

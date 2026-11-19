@@ -19,6 +19,7 @@ Sistema en Python orientado a objetos sobre la base MySQL `aerolinea`
 |---|---|
 | `python main.py` | Menú de consola: buscar vuelos, detalle, cotizar, reservar, operar un vuelo, consultar PNR, buscar pasajero, análisis |
 | `streamlit run dashboard.py` | **Dashboard de negocio** (tema oscuro): mapa de rutas 3D coloreable por ingresos/puntualidad/ocupación/pasajeros, calendario de días con más vuelos, KPIs con tendencia, hallazgos automáticos y pestañas de rutas, ventas, operaciones y clientes. Filtros de fecha, mercado, rutas y moneda (USD/PEN) |
+| `python exportar_html.py` | Genera **salidas/dashboard.html**: el mismo dashboard en un solo archivo que se abre con doble clic (sin Python ni MySQL; solo el fondo del mapa usa internet) |
 | `python generar_analisis.py` | Genera los 8 gráficos PNG y `analisis_aerolinea.xlsx` en `salidas/` |
 | `python -m pytest -v` | Ejecuta las pruebas unitarias (y las de MySQL si hay conexión) |
 

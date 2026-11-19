@@ -49,3 +49,17 @@ CIUDADES = {
     "GRU": "São Paulo", "MIA": "Miami", "MEX": "Ciudad de México", "PTY": "Ciudad de Panamá",
     "UIO": "Quito", "MAD": "Madrid",
 }
+
+PAISES = {"SCL": "Chile", "BOG": "Colombia", "EZE": "Argentina", "GRU": "Brasil", "MIA": "Estados Unidos",
+          "MEX": "México", "PTY": "Panamá", "UIO": "Ecuador", "MAD": "España"}   # el resto: Peru
+
+
+def pais(iata: str) -> str:
+    return PAISES.get(iata, "Perú")
+
+
+def nombre_ruta(ruta: str) -> str:
+    """'LIM-MAD' -> 'Lima → Madrid'  (tambien acepta 'LIM ⇄ MAD')."""
+    sep = " ⇄ " if "⇄" in ruta else "-"
+    flecha = " ⇄ " if sep == " ⇄ " else " → "
+    return flecha.join(CIUDADES.get(c, c) for c in ruta.split(sep))

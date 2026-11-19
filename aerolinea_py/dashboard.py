@@ -9,6 +9,7 @@ Muestra el historico hasta la fecha de corte del dataset (30/09/2026).
 Definiciones de cada indicador: aerolinea/indicadores.py.
 Tema oscuro: .streamlit/config.toml.
 """
+import json
 import math
 import os
 
@@ -19,13 +20,16 @@ import streamlit as st
 from aerolinea import analisis as A
 from aerolinea import indicadores as I
 from aerolinea.config import FECHA_CORTE, RAIZ
-from aerolinea.geo import CIUDADES, lon_lat
+from aerolinea.geo import CIUDADES, COORDENADAS, lon_lat, nombre_ruta, pais
 from aerolinea.patrones.reserva_builder import TIPO_CAMBIO_PEN
 
-try:
-    import pydeck as pdk          # viene instalado con Streamlit
-except ImportError:               # pragma: no cover
-    pdk = None
+import streamlit.components.v1 as components
+
+# Mapa con aviones animados (aerolinea/mapa_vuelos.js), dentro de un componente HTML
+MAPA_HTML = ("<html><head><meta charset='utf-8'><style>html,body{margin:0;background:#0b1220}"
+             "#mapa{height:560px;border-radius:12px;border:1px solid #1f2b42}</style></head><body>"
+             "<div id='mapa'></div><script>" + (RAIZ / "aerolinea" / "mapa_vuelos.js").read_text(encoding="utf-8") +
+             "</script><script>MapaVuelos(document.getElementById('mapa'), __CONFIG__);</script></body></html>")
 
 # Paleta para fondo oscuro
 AZUL, NARANJA, VERDE, AMARILLO, ROJO, GRIS = (
@@ -70,6 +74,9 @@ st.markdown("""
   .ae-leyenda { display: flex; align-items: center; gap: 10px; color: #b9c7dd; font-size: .82rem; }
   .ae-barra { height: 10px; width: 220px; border-radius: 6px; }
   div[data-testid="stMetricValue"] { font-size: 1.9rem; }
+  .ae-codigos { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 6px; font-size: .84rem; color: #b9c7dd; }
+  .ae-codigos b { color: #9fd3ff; font-family: monospace; font-size: .9rem; margin-right: 4px; }
+  .ae-codigos-t { color: #8b95a7; font-size: .76rem; text-transform: uppercase; letter-spacing: .6px; margin-top: 10px; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -140,8 +147,29 @@ moneda = st.sidebar.radio("Moneda", ["USD", "PEN"], horizontal=True,
 FX = TIPO_CAMBIO_PEN if moneda == "PEN" else 1.0
 SIM = "S/" if moneda == "PEN" else "US$"
 rutas = st.sidebar.multiselect("Rutas (vacío = todas)", sorted(base["ruta"].unique()),
-                               placeholder="Elige una o más rutas")
+                               placeholder="Elige una o más rutas",
+                               format_func=lambda r: f"{r} · {nombre_ruta(r)}")
 st.sidebar.caption(f"Datos históricos hasta el {FECHA_CORTE:%d/%m/%Y} (fecha de corte del dataset).")
+
+
+def codigos_html(iatas) -> str:
+    """Leyenda de codigos IATA: 'LIM Lima', separada en Peru e internacionales."""
+    nac = sorted(c for c in iatas if pais(c) == "Perú")
+    inter = sorted((c for c in iatas if pais(c) != "Perú"), key=pais)
+    fila = lambda cs, con_pais: "".join(
+        f"<span><b>{c}</b>{CIUDADES.get(c, c)}{' (' + pais(c) + ')' if con_pais else ''}</span>" for c in cs)
+    out = ""
+    if nac:
+        out += f'<div class="ae-codigos-t">Perú</div><div class="ae-codigos">{fila(nac, False)}</div>'
+    if inter:
+        out += f'<div class="ae-codigos-t">Internacional</div><div class="ae-codigos">{fila(inter, True)}</div>'
+    return out
+
+
+with st.sidebar.expander("📍 ¿Qué significa cada código?"):
+    st.markdown(codigos_html(COORDENADAS) + '<p style="font-size:.78rem;color:#8b95a7;margin-top:10px">'
+                "Son los códigos IATA de los aeropuertos. LIM-MAD = vuelo de Lima a Madrid.</p>",
+                unsafe_allow_html=True)
 if fuente in ("MySQL", "archivos CSV"):
     st.sidebar.caption(f"Fuente: {fuente}")
 else:
@@ -361,70 +389,42 @@ with tab_mapa:
     if not pares.empty:
         pares = pares[pares["vuelos_operados"] > 0].reset_index(drop=True)
 
-    if pdk is None:
-        st.warning("Falta la librería pydeck (viene con Streamlit): pip install pydeck")
-    elif pares.empty:
+    if pares.empty:
         st.info("No hay vuelos operados para mostrar en el mapa con estos filtros.")
     else:
         columna, formato = METRICAS[metrica]
         lo, hi = pares[columna].min(), pares[columna].max()
         max_pax = max(pares["pasajeros"].max(), 1)
-        arcos = pd.DataFrame({
-            "desde": [lon_lat(a) for a in pares["a"]],
-            "hacia": [lon_lat(b) for b in pares["b"]],
-            "color": [color_de(v, metrica, lo, hi) for v in pares[columna]],
-            "ancho": [1.5 + 10 * math.sqrt(p / max_pax) for p in pares["pasajeros"]],
-            "titulo": pares["par"],
-            "l1": [f"Pasajeros: {p:,.0f} · Vuelos: {v:,.0f}" for p, v in zip(pares["pasajeros"], pares["vuelos_operados"])],
-            "l2": [f"Ingresos: {dinero(x)} ({pc:.1f}% del total)" for x, pc in zip(pares["ingresos"], pares["pct_ingresos"])],
-            "l3": [f"Ocupación: {fmt(x, '{:.1f}%')}" for x in pares["ocupacion_pct"]],
-            "l4": [f"Puntualidad: {fmt(x, '{:.1f}%')}" for x in pares["puntualidad_pct"]],
-        })
+        arcos = [{"a": r.a, "b": r.b, "color": "rgb({},{},{})".format(*color_de(getattr(r, columna), metrica, lo, hi)[:3]),
+                  "ancho": 1.5 + 9 * math.sqrt(r.pasajeros / max_pax),
+                  "tip": (f"<b>{r.par}</b> · {nombre_ruta(r.par)}<br>Pasajeros: {r.pasajeros:,.0f} · "
+                          f"Vuelos: {r.vuelos_operados:,.0f}<br>Ingresos: {dinero(r.ingresos)} ({r.pct_ingresos:.1f}% del total)"
+                          f"<br>Ocupación: {fmt(r.ocupacion_pct, '{:.1f}%')}<br>Puntualidad: {fmt(r.puntualidad_pct, '{:.1f}%')}")}
+                 for r in pares.itertuples()]
         # aeropuertos: pasajeros que pasan por cada uno (llegan + salen)
         aero = (pd.concat([pares[["a", "pasajeros"]].rename(columns={"a": "iata"}),
                            pares[["b", "pasajeros"]].rename(columns={"b": "iata"})])
                 .groupby("iata").agg(pasajeros=("pasajeros", "sum"), rutas=("pasajeros", "size"))
                 .reset_index())
-        escala = 1.0 if vista == "Mundo" else 0.25
-        aero = aero.assign(
-            pos=[lon_lat(i) for i in aero["iata"]],
-            radio=[escala * (25000 + 160000 * math.sqrt(p / aero["pasajeros"].max())) for p in aero["pasajeros"]],
-            titulo=[f"{i} · {CIUDADES.get(i, i)}" for i in aero["iata"]],
-            l1=[f"Pasajeros (llegan + salen): {p:,.0f}" for p in aero["pasajeros"]],
-            l2=[f"Rutas: {r}" for r in aero["rutas"]], l3="", l4="")
-
-        capas = [
-            pdk.Layer("ArcLayer", data=arcos, get_source_position="desde", get_target_position="hacia",
-                      get_source_color="color", get_target_color="color", get_width="ancho",
-                      get_height=0.45, great_circle=True, pickable=True, auto_highlight=True),
-            pdk.Layer("ScatterplotLayer", data=aero, get_position="pos", get_radius="radio",
-                      get_fill_color=[230, 237, 247, 200], get_line_color=[61, 156, 245, 255],
-                      line_width_min_pixels=1, stroked=True, radius_min_pixels=3,
-                      radius_max_pixels=28, pickable=True),
-            pdk.Layer("TextLayer", data=aero, get_position="pos", get_text="iata", get_size=12,
-                      get_color=[230, 237, 247, 230], get_pixel_offset=[0, -16],
-                      font_weight="bold"),
-        ]
-        if vista == "Mundo":
-            vista_ini = pdk.ViewState(latitude=6, longitude=-45, zoom=1.65, pitch=30, bearing=0)
-        else:
-            vista_ini = pdk.ViewState(latitude=-10, longitude=-75.5, zoom=4.4, pitch=40, bearing=-8)
-        tooltip = {"html": "<b>{titulo}</b><br/>{l1}<br/>{l2}<br/>{l3}<br/>{l4}",
-                   "style": {"backgroundColor": "#131c2e", "color": "#e6edf7", "fontSize": "12px",
-                             "border": "1px solid #2a3b5c", "borderRadius": "8px"}}
-
+        nodos = [{"c": r.iata, "pax": int(r.pasajeros), "rutas": int(r.rutas),
+                  "tip": f"<b>{r.iata} · {CIUDADES.get(r.iata, r.iata)}</b><br>Pasajeros (llegan + salen): "
+                         f"{r.pasajeros:,.0f}<br>Rutas: {r.rutas}"} for r in aero.itertuples()]
+        centro = {"Mundo": (3, -50, 4), "Perú": (5, -75.3, -9.6)}[vista]
         col_mapa, col_top = st.columns([3, 1.15])
         with col_mapa:
-            deck = pdk.Deck(layers=capas, initial_view_state=vista_ini, tooltip=tooltip,
-                            map_provider="carto", map_style="dark", height=560)
-            try:
-                st.pydeck_chart(deck, use_container_width=True, height=560)
-            except TypeError:     # Streamlit antiguo (sin parametro height)
-                st.pydeck_chart(deck, use_container_width=True)
+            config = {"clave": vista, "z": centro[0], "lon": centro[1], "lat": centro[2], "arcos": arcos,
+                      "nodos": nodos, "vacio": "Sin rutas para mostrar.",
+                      "aeropuertos": {c: {"lat": la, "lon": lo_, "ciudad": CIUDADES.get(c, c), "pais": pais(c)}
+                                      for c, (la, lo_) in COORDENADAS.items()}}
+            components.html(MAPA_HTML.replace("__CONFIG__", json.dumps(config, ensure_ascii=False)
+                                              .replace("</", "<\\/")), height=566)
             leyenda(metrica, lo, hi)
             st.caption(f"{eleccion} · {'Rutas nacionales' if vista == 'Perú' else 'Todas las rutas'} · "
-                       "Ida y vuelta se muestran como un solo arco. Arrastra para mover, Ctrl + arrastrar "
-                       "para rotar en 3D. Coordenadas aproximadas de los aeropuertos (no vienen en el dataset).")
+                       "Ida y vuelta se muestran como un solo arco; los aviones indican el sentido del vuelo. "
+                       "Clic en un aeropuerto para ver solo sus vuelos. Arrastra para mover y usa la rueda del "
+                       "mouse o + / − para acercar. Coordenadas aproximadas de los aeropuertos (no vienen en el dataset).")
+            st.markdown("<b>Códigos de los aeropuertos del mapa</b>" + codigos_html(aero["iata"]),
+                        unsafe_allow_html=True)
         with col_top:
             st.markdown(f"**Ranking por {metrica.lower()}**")
             top = pares.sort_values(columna, ascending=False)[["par", columna]].head(12)
@@ -437,6 +437,7 @@ with tab_mapa:
                                                        max_value=int(pares[columna].max()))
             else:
                 conf = st.column_config.ProgressColumn("%", format="%.1f", min_value=0, max_value=100)
+            top["par"] = top["par"].map(nombre_ruta)       # nombres de ciudades: se leen sin leyenda
             st.dataframe(top, hide_index=True, use_container_width=True, height=470,
                          column_config={"par": "Ruta", columna: conf})
 
@@ -572,6 +573,7 @@ with tab_cal:
 # ----------------------------------------------------------------------
 with tab_rutas:
     r = por_ruta.copy()
+    r["ciudades"] = r["ruta"].map(nombre_ruta)
     r["ingresos"] = r["ingresos"] * FX
     r["ingreso_por_asiento"] = r["ingreso_por_asiento"] * FX
     st.subheader("Rutas por ingresos")
@@ -581,7 +583,7 @@ with tab_rutas:
         alt.Chart(r.head(top)).mark_bar(color=AZUL, cornerRadiusEnd=3).encode(
             y=alt.Y("ruta:N", sort="-x", title=None),
             x=alt.X("ingresos:Q", title=f"Ingresos ({moneda})", axis=alt.Axis(format="~s")),
-            tooltip=["ruta", alt.Tooltip("ingresos:Q", format=",.0f"),
+            tooltip=["ruta", alt.Tooltip("ciudades:N", title="Ciudades"), alt.Tooltip("ingresos:Q", format=",.0f"),
                      alt.Tooltip("pct_ingresos:Q", title="% del total", format=".1f"),
                      alt.Tooltip("vuelos_operados:Q", title="Vuelos")],
         ).properties(height=max(200, 22 * min(top, len(r)))), use_container_width=True)
@@ -593,13 +595,13 @@ with tab_rutas:
             x=alt.X("ocupacion_pct:Q", title="Ocupación (%)", scale=alt.Scale(zero=False)),
             y=alt.Y("puntualidad_pct:Q", title="Puntualidad (%)", scale=alt.Scale(zero=False)),
             size=alt.Size("ingresos:Q", legend=None, scale=alt.Scale(range=[40, 900])),
-            tooltip=["ruta", alt.Tooltip("ocupacion_pct:Q", format=".1f"),
+            tooltip=["ruta", alt.Tooltip("ciudades:N", title="Ciudades"), alt.Tooltip("ocupacion_pct:Q", format=".1f"),
                      alt.Tooltip("puntualidad_pct:Q", format=".1f"),
                      alt.Tooltip("ingresos:Q", format=",.0f")],
         ).properties(height=380), use_container_width=True)
 
     st.caption(f"Montos en {moneda}.")
-    st.dataframe(r[["ruta", "vuelos_operados", "pasajeros", "ingresos", "pct_ingresos",
+    st.dataframe(r[["ruta", "ciudades", "vuelos_operados", "pasajeros", "ingresos", "pct_ingresos",
                     "ocupacion_pct", "puntualidad_pct", "ingreso_por_asiento", "cancelados"]]
                  .style.format({"ingresos": "{:,.0f}", "pasajeros": "{:,.0f}",
                                 "pct_ingresos": "{:.1f}", "ocupacion_pct": "{:.1f}",
